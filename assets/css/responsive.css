@@ -1,0 +1,44 @@
+/* achievements responsive */
+/* small*/
+@media (max-width: 991px) {
+    .content {
+        flex-direction: column-reverse;
+      }
+      .content > div {
+          width: 100%;
+      }
+      .content .text ul li{
+          width: 99% !important;
+      }
+      .footer-section{
+          flex-direction: column;
+      }
+      .footer-of-achievements{
+          bottom: -250px;
+      }
+      .footer-of-achievements i{
+        font-size: 3rem;
+      }
+  }
+/* medium*/
+@media (max-width: 1199px) {
+    .content .image-holder img{
+        height: 100%;
+    }
+    .content  {
+        width: 95%;
+    }
+    .footer-of-achievements{
+        bottom: -200px;
+    }
+}
+/* large */
+@media (max-width: 1399px) {
+    .content .image-holder img{
+        height: 100%;
+    }
+    .content  {
+        width: 95%;
+    }
+}
+/* end of achievements responsive */
