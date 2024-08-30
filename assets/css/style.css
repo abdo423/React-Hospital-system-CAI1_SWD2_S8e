@@ -78,7 +78,7 @@ a{
   background-color: white;
   box-shadow: 5px -5px 55px -30px;
 }
-.content .text {
+.content > div {
   width: 50%;
 }
 .achievements .content .text{
