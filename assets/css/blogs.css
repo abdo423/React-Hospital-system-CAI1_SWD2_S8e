@@ -128,11 +128,12 @@
 /* navbar end */
 /* blog-hero */
 #blogs-hero{
-    background-image: url("https://static.vecteezy.com/system/resources/thumbnails/023/417/428/small/healthcare-and-medical-innovation-background-with-dots-and-lines-molecular-structure-and-hospital-cross-illustration-vector.jpg");
+    background-image: url("https://cdn.wallpapersafari.com/25/85/bREnu7.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    padding: 100px 0;
+    object-fit: cover;
+    padding: 120px 0;
 }
 #blogs-hero h1 {
     font-size: 2rem;
