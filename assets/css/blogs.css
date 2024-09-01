@@ -1,6 +1,7 @@
 :root {
     --primary-color: #0071ef;
     --secondary-color: #98a1b1;
+    --section-padding: 30px;
   }
 *{
     font-family: 'Roboto', sans-serif;
@@ -9,7 +10,142 @@
     box-sizing: border-box;
 
 }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: "Roboto", sans-serif;
+  }
+  ul {
+    list-style: none;
+  }
+
+
+  /* end global rules */
+  /* start contact */
+  .contact {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+  }
+  .contact .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  @media (max-width: 768px) {
+    .contact .container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  .contact .container .contact-us {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  @media (max-width: 768px) {
+    .contact .container .contact-us {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 10px;
+    }
+  }
+  .contact .container .contact-us div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 20px;
+  }
+  .contact .container .contact-us div p span {
+    color: #777;
+  }
+  .contact .container .contact-us div img {
+    margin-right: 10px;
+  }
+  /* end contact */
+  
+  /* start nav */
+  .nav {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    background-color: var(--primary-color);
+  }
+  .nav .container {
+    position: relative;
+  }
+  /* hidden in big screens */
+  @media (min-width: 768px) {
+    .nav .container i {
+      display: none;
+    }
+  }
+  .nav .container ul {
+    display: flex;
+    justify-content: flex-start;
+  }
+  /* hide ul in small screens */
+  @media (max-width: 768px) {
+    .nav .container ul {
+      display: none;
+    }
+    .nav .container i:hover + ul {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      width: 100%;
+    }
+    .nav .container ul li {
+      padding: 5px 0;
+      position: relative;
+    }
+    .nav .container ul li :after {
+      content: "";
+      background-color: white;
+      position: absolute;
+      left: 0;
+      top: 25px;
+      width: 50px;
+      height: 1px;
+    }
+  }
+  
+  .nav .container ul li {
+    margin-right: 25px;
+  }
+  .nav .container ul li a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  .nav ul li a:hover {
+    color: black;
+  }
+
+  
+/* navbar end */
+/* blog-hero */
+#blogs-hero{
+    background-image: url("https://static.vecteezy.com/system/resources/thumbnails/023/417/428/small/healthcare-and-medical-innovation-background-with-dots-and-lines-molecular-structure-and-hospital-cross-illustration-vector.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 100px 0;
+}
+#blogs-hero h1 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin: 20px 0;
+
+}
+
+/* blog-hero end */
 /* blogs */
+#blogs-section {
+    padding-top: 50px ;
+}
 #blogs-section\  > div {
     margin: 80px 0;
 }
@@ -23,8 +159,12 @@
     color: var(--secondary-color);
    
 }
+
 /* blogs end */
 /* pagination section */
+#pagination{
+    margin: 50px 0;
+}
 .pagination .page-item .page-link {
     width: 60px;
     height: 60px;
