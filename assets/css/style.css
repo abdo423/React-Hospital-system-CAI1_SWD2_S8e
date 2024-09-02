@@ -7,7 +7,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* overflow-x: hidden; */
+  overflow-x: hidden; 
 }
 
 /*general*/
@@ -60,23 +60,11 @@ ul {
 /* end global rules */
 
 /* start contact */
-
 .contact {
   padding-top: var(--section-padding);
   padding-bottom: var(--section-padding);
 }
-.contact .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
-.contact .container .contact-us div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-right: 20px;
-}
 .contact .container .contact-us div p span {
   color: #777;
 }
@@ -84,68 +72,27 @@ ul {
   margin-right: 10px;
 }
 /* end contact */
-/* start nav-bar */
+
 /* start nav */
-.nav {
+nav {
   padding-top: var(--section-padding);
   padding-bottom: var(--section-padding);
   background-color: var(--primary-color);
 }
-.nav .container {
+nav .container {
   position: relative;
 }
-/* hidden in big screens */
-@media (min-width: 768px) {
-  .nav .container i {
-    display: none;
-  }
-}
-.nav .container ul {
-  display: flex;
-  justify-content: flex-start;
-}
-/* hide ul in small screens */
-@media (max-width: 768px) {
-  .nav .container ul {
-    display: none;
-  }
-  .nav .container i:hover + ul {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    width: 100%;
-  }
-  .nav .container ul li {
-    padding: 5px 0;
-    position: relative;
-  }
-  .nav .container ul li :after {
-    content: "";
-    background-color: white;
-    position: absolute;
-    left: 0;
-    top: 25px;
-    width: 50px;
-    height: 1px;
-  }
-}
-
-.nav .container ul li {
+nav .container ul li {
   margin-right: 25px;
 }
-.nav .container ul li a {
+nav .container ul li a {
   color: white;
-  text-decoration: none;
   transition: 0.3s;
 }
-.nav ul li a:hover {
+nav ul li a:hover {
   color: black;
 }
-
-
-/* navbar end */
-/* end navbar */
-
+/* end nav */
 /* start hero */
 .hero {
   padding-top: var(--section-padding);
@@ -162,7 +109,7 @@ ul {
   transform: translateY(-50%);
 }
 @media (max-width: 768px) {
-  .hero .container .hero-content {
+  .hero .container .content {
     max-height: 80%;
   }
 }
@@ -176,14 +123,6 @@ ul {
 }
 .hero .container .hero-content h2 span {
   color: var(--primary-color);
-}
-.hero .container .hero-content button {
-  outline: none;
-  border: none;
-  padding: 10px 15px;
-  background-color: var(--primary-color);
-  margin-top: 20px;
-  color: white;
 }
 
 /* end hero */
