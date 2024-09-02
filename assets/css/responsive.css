@@ -1,139 +1,200 @@
-/* General styles for small screens and below */
+/* achivments and features */
+
 @media (max-width: 576px) {
-    .content {
-        flex-direction: column-reverse;
-        width: 90%; /* Ensure good spacing on very small screens */
-    }
+  .content {
+    flex-direction: column-reverse;
+    width: 100%; /* Use full width to prevent overflow */
+    margin: 5px auto;
+    box-sizing: border-box; /* Ensure padding and borders are included in the width/height */
+  }
 
-    .content .text,
-    .content .image-holder {
-        width: 100%; /* Full width on very small screens */
-    }
+  .content .text,
+  .content .image-holder {
+    width: 100%; /* Full width to prevent overflow */
+    box-sizing: border-box;
+  }
 
-    .title {
-        font-size: 1rem; /* Smaller title font size */
-    }
+  .title {
+    font-size: 1rem; /* Smaller title font size */
+  }
 
-    p {
-        font-size: 0.75rem; /* Smaller paragraph font size */
-    }
+  p {
+    font-size: 0.75rem; /* Smaller paragraph font size */
+  }
 
-    .content .text ul li {
-        width: 100%; /* Full width for list items */
-        display: block; /* Stack list items vertically */
-    }
+  .content .text ul li {
+    width: 100%; /* Full width for list items */
+    display: block; /* Stack list items vertically */
+    box-sizing: border-box;
+  }
 
-    .primary-button {
-        font-size: 0.75rem; /* Smaller button font size */
-        padding: 6px 12px; /* Smaller button padding */
-    }
+  .primary-button {
+    font-size: 0.75rem; /* Smaller button font size */
+    padding: 6px 12px; /* Smaller button padding */
+  }
 
-    .achievements .content img {
-        height: auto; /* Maintain aspect ratio */
-    }
+  .achievements .content img {
+    height: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Prevent image overflow */
+  }
 
-    .achievements .content .text {
-        padding: 10px; /* Adjust padding */
-    }
+  .achievements .content .text {
+    padding: 10px; /* Adjust padding */
+  }
 
-    .content {
-        margin: 5px auto; /* Adjust margin */
-    }
+  .footer-of-achievements {
+    padding: 20px 0; /* Adjust footer padding */
+    bottom: -100px; /* Adjust footer position */
+  }
 
-    .footer-of-achievements {
-        padding: 20px 0; /* Adjust footer padding */
-        bottom: -100px; /* Adjust footer position */
-    }
-
-    .featuers .card {
-        margin: 10px 0; /* Adjust margin */
-    }
+  .featuers .card {
+    margin: 10px 0; /* Adjust margin */
+  }
 }
 
 /* Styles for small to medium screens (tablets and up) */
 @media (max-width: 768px) {
-    .content {
-        flex-direction: column-reverse;
-        width: 90%; /* Adjust width for better spacing */
-    }
+  .container {
+    width: 100%; /* Adjust to prevent overflow */
+    max-width: 750px;
+    box-sizing: border-box;
+  }
 
-    .content .text,
-    .content .image-holder {
-        width: 100%; /* Full width on small screens */
-    }
+  .content {
+    flex-direction: column-reverse;
+    width: 100%; /* Adjust width for better spacing */
+    box-sizing: border-box;
+  }
 
-    .title {
-        font-size: 1.25rem; /* Adjust title font size */
-    }
+  .content .text,
+  .content .image-holder {
+    width: 100%; /* Full width on small screens */
+    box-sizing: border-box;
+  }
 
-    p {
-        font-size: 0.875rem; /* Reduce paragraph font size */
-    }
+  .title {
+    font-size: 1.25rem; /* Adjust title font size */
+  }
 
-    .content .text ul li {
-        width: 100%; /* Full width for list items */
-        display: block; /* Stack list items vertically */
-    }
+  p {
+    font-size: 0.875rem; /* Reduce paragraph font size */
+  }
 
-    .primary-button {
-        font-size: 0.875rem; /* Adjust button font size */
-        padding: 8px 16px; /* Adjust padding */
-    }
+  .content .text ul li {
+    width: 100%; /* Full width for list items */
+    display: block; /* Stack list items vertically */
+    box-sizing: border-box;
+  }
 
-    .achievements .content img {
-        height: auto; /* Maintain aspect ratio */
-    }
+  .primary-button {
+    font-size: 0.875rem; /* Adjust button font size */
+    padding: 8px 16px; /* Adjust padding */
+  }
+
+  .achievements .content img {
+    height: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Prevent image overflow */
+  }
 }
 
 /* Styles for medium screens (desktops and up) */
 @media (max-width: 991px) {
-    .content {
-        flex-direction: column-reverse;
-    }
+  .content {
+    flex-direction: column-reverse;
+    width: 100%; /* Prevent overflow */
+    box-sizing: border-box;
+  }
 
-    .content .text {
-        width: 100%;
-    }
+  .content .text {
+    width: 100%;
+    box-sizing: border-box;
+  }
 
-    .content .text ul li {
-        width: 99% !important; /* Adjust for specific cases */
-    }
+  .content .text ul li {
+    width: 99% !important; /* Adjust for specific cases */
+    box-sizing: border-box;
+  }
 
-    .footer-section {
-        flex-direction: column;
-    }
+  .footer-section {
+    flex-direction: column;
+  }
 
-    .footer-of-achievements {
-        bottom: -250px; /* Adjust footer position */
-    }
+  .footer-of-achievements {
+    bottom: -250px; /* Adjust footer position */
+  }
 
-    .footer-of-achievements i {
-        font-size: 3rem; /* Adjust icon size */
-    }
+  .footer-of-achievements i {
+    font-size: 3rem; /* Adjust icon size */
+  }
 }
 
 /* Styles for large screens (larger desktops) */
 @media (max-width: 1199px) {
-    .content .image-holder img {
-        height: 100%; /* Ensure image fits the container */
-    }
+  .content .image-holder img {
+    height: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Ensure image fits the container */
+  }
 
-    .content {
-        width: 95%; /* Adjust width */
-    }
+  .content {
+    width: 95%; /* Adjust width */
+    box-sizing: border-box;
+  }
 
-    .footer-of-achievements {
-        bottom: -200px; /* Adjust footer position */
-    }
+  .footer-of-achievements {
+    bottom: -200px; /* Adjust footer position */
+  }
 }
 
 /* Styles for extra-large screens (larger desktops) */
 @media (max-width: 1399px) {
-    .content .image-holder img {
-        height: 100%; /* Ensure image fits the container */
-    }
+  .content .image-holder img {
+    height: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Ensure image fits the container */
+  }
 
-    .content {
-        width: 95%; /* Adjust width */
-    }
+  .content {
+    width: 95%; /* Adjust width */
+    box-sizing: border-box;
+  }
 }
+
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+    max-width: 100%; /* Prevent overflow */
+    box-sizing: border-box;
+  }
+}
+
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+    max-width: 100%; /* Prevent overflow */
+    box-sizing: border-box;
+  }
+}
+
+/* contact-us */
+@media (max-width: 768px) {
+  .contact .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+.contact .container .contact-us {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .contact .container .contact-us {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
+  }
+}
+/* end contact-us */
