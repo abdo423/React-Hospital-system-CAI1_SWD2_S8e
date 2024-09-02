@@ -155,29 +155,29 @@ ul {
   height: calc(100vh - 198px);
   position: relative;
 }
-.hero .container .content {
+.hero .container .hero-content {
   max-width: 30%;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
 }
 @media (max-width: 768px) {
-  .hero .container .content {
+  .hero .container .hero-content {
     max-height: 80%;
   }
 }
-.hero .container .content p {
+.hero .container .hero-content p {
   font-weight: bold;
   font-size: 25px;
   margin-bottom: 10px;
 }
-.hero .container .content h2 {
+.hero .container .hero-content h2 {
   font-size: 40px;
 }
-.hero .container .content h2 span {
+.hero .container .hero-content h2 span {
   color: var(--primary-color);
 }
-.hero .container .content button {
+.hero .container .hero-content button {
   outline: none;
   border: none;
   padding: 10px 15px;
