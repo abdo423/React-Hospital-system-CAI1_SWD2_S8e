@@ -92,6 +92,9 @@ nav .container ul li a {
 nav ul li a:hover {
   color: black;
 }
+.navbar-nav{
+  z-index: 999999;
+}
 /* end nav */
 /* start hero */
 .hero {
