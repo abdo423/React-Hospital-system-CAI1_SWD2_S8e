@@ -1,0 +1,38 @@
+footer #one {
+    color: #346def;
+}
+footer #two {
+    color:#040a1f;
+}
+
+footer {
+    background-image: linear-gradient(rgba(226, 242, 253, 0.3), rgba(226, 242, 253, 0.3)), url('/React-Hospital-system-CAI1_SWD2_S8e/assets/images/bg1.png');
+    isolation: isolate;
+}
+footer .Contact_info i {
+    color: #2f73ef;
+
+}
+.email-section{
+    position: relative;
+}
+.email-section i
+{
+    color: #2f73ef;
+    position: absolute;
+    top: calc(30%);
+    left: 1rem;
+}
+.email-section input[type="submit"] {
+    background-color: #2f73ef;
+    color: #FFf;
+}
+.email-section .email_input {
+    left: 0.5rem;
+    padding-left: 2.5rem;
+}
+.Opening_Hours .ul li {
+    padding-left: 0; 
+    margin-left: 0; 
+    text-align: left;
+}

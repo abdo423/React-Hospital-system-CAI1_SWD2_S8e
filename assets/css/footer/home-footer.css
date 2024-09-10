@@ -1,0 +1,10 @@
+footer #one {
+    color: #346def;
+}
+footer #two {
+    color:#040a1f;
+}
+
+footer {
+    background-image: url(../images/bg1.png);
+}

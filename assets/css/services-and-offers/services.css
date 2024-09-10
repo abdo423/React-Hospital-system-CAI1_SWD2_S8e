@@ -1,0 +1,76 @@
+/*general*/
+:root {
+    --color-primary: #0071ef;
+  }
+  /* about-us section style */
+  #about-us {
+    background-color: #f5f9ff;
+  }
+  #about-us .the-content-of-section .card {
+    margin: 0px 0px 100px 0px;
+  }
+  #about-us .the-content-of-section .container .card img {
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+  }
+  #about-us .the-content-of-section .container .card a {
+    color: black;
+  }
+  #about-us .the-content-of-section .container .card a:hover {
+    color: #3b5998;
+  }
+  /* end of about-us section style */
+  
+  /*departments section style*/
+  #departments .the-content-of-section .departments-photos .container .row > div {
+    background-color: #f5f9ff;
+  }
+  #departments .the-content-of-section .department-summry .container .row {
+    background-color: white;
+  }
+  #departments
+    .the-content-of-section
+    .department-summry
+    .container
+    .row
+    .text
+    ul
+    li::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f00c";
+    padding-right: 10px;
+    font-size: large;
+    font-weight: 900;
+    color: var(--color-primary);
+  }
+  #departments
+    .the-content-of-section
+    .department-summry
+    .container
+    .row
+    .text
+    .primary-button {
+    background-color: var(--color-primary);
+    color: white;
+  }
+  #departments
+    .the-content-of-section
+    .department-summry
+    .container
+    .row
+    .text
+    .primary-button:hover {
+    background-color: white;
+    color: var(--color-primary);
+  }
+  #departments .footer-of-departments .row {
+    bottom: -25%;
+    width: 100%;
+    background-color: var(--color-primary);
+    color: white;
+  }
+  .footer-of-departments{
+    margin: 100px 0;
+  }
+  /*end of departments section style */
