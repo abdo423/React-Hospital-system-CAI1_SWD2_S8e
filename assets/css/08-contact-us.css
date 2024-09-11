@@ -1,61 +1,35 @@
 :root {
-    --primary-color: #0071ef;
-    --section-padding: 20px;
-  }
-  /* start contact */
-.contact {
-    padding-top: var(--section-padding);
-    padding-bottom: var(--section-padding);
-  }
-  
-  .contact .container .contact-us div p span {
-    color: #777;
-  }
-  .contact .container .contact-us div img {
-    margin-right: 10px;
-  }
-  /* end contact */
-  
-  /* start nav */
-  nav {
-    padding-top: var(--section-padding);
-    padding-bottom: var(--section-padding);
-    background-color: var(--primary-color);
-  }
-  nav .container {
-    position: relative;
-  }
-  nav .container ul li {
-    margin-right: 25px;
-  }
-  nav .container ul li a {
-    color: white;
-    transition: 0.3s;
-  }
-  nav ul li a:hover {
-    color: black;
-  }
-  /* end nav */
-.contact-us .container p{
-    padding-right: 30%;
+  --primary-color: #0071ef;
+  --section-padding: 20px;
 }
+
+/* start contact */
+
+.contact-us .container p {
+  padding-right: 30%;
+}
+
 .contact-us .container {
-    width: 80%;
-    padding-left: 30px;
-    
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.01), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+  width: 80%;
+  padding-left: 30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.01), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
 }
 
 .contact-us .container .infocard::after {
-    content: "";
-    width: 5px;
-    height: 100%;
-    background-color: var(--primary-color);
-    position: absolute;
-    left: -10px;
-    top: 0;
+  content: "";
+  width: 5px;
+  height: 100%;
+  background-color: var(--primary-color);
+  position: absolute;
+  left: -10px;
+  top: 0;
 }
 
 iframe {
-    width: 100%;
+  width: 100%;
+}
+
+/* Add space between contact us section and map */
+.contact-us {
+  margin-bottom: 50px; /* Adjust this value as needed */
 }

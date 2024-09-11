@@ -4,167 +4,224 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hospital Management System</title>
-    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/icofont.min.css" />
+    <link rel="stylesheet" href="/assets/css/all.min.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/assets/css/icofont.min.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="shortcut icon" href="./assets/images/images.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="/assets/css/all.min.css" />
+
+    <link rel="stylesheet" href="assets/css/blogs.css" />
+    <!-- header css -->
+    <link rel="stylesheet" href="./assets/css/header/header.css" />
+    <!-- services.css -->
+    <link
+      rel="stylesheet"
+      href="./assets/css/services-and-offers/services.css"
+    />
+    <!-- ourteams and appointments -->
+    <link
+      rel="stylesheet"
+      href="./assets/css/ourTeams-and-appointment/ourTeam-appointment.css"
+    />
+    <!-- footer -->
+    <link rel="stylesheet" href="./assets/css/footer/footer.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+
     <link rel="stylesheet" href="/assets/css/responsive.css" />
-    <link rel="stylesheet" href="./assets/css/about-us.css" />
   </head>
-
   <body>
-    <!-- start contact -->
-    <div class="contact">
-      <div
-        class="container mx-auto row justify-content-between align-items-center"
-      >
-        <div class="logo col-md-3 col-sm-12">
-          <a href="#">
-            <img src="assets/images/logo (1).png" alt="Logo" />
-          </a>
-        </div>
+    <!-- header start -->
+    <header>
+      <!-- start contact -->
+      <section id="contact">
         <div
-          class="contact-us col-md-7 col-sm-12 row justify-content-between align-items-center"
+          class="container mx-auto justify-content-between align-items-center"
         >
-          <div class="col d-flex align-items-center">
-            <img src="assets/images/1.png" alt="phone icon" />
-            <p><span>Number:</span><br />+88012345678</p>
-          </div>
-          <div class="col d-flex align-items-center">
-            <img src="assets/images/2.png" alt="email icon" />
-            <p><span>Email: </span><br />Mutiki@gmail.com</p>
-          </div>
-          <div class="col d-flex align-items-center">
-            <img src="assets/images/3.png" alt="address icon" />
-            <p><span>Address:</span> <br />12 North West New York 100</p>
+          <div class="row">
+            <div class="logo col-md-3 col-sm-12">
+              <a href="#">
+                <img src="assets/images/logo (1).png" alt="Logo" />
+              </a>
+            </div>
+            <div
+              class="contact-us col-md-7 col-sm-12 row justify-content-between align-items-center"
+            >
+              <div class="col d-flex align-items-center">
+                <img src="assets/images/1.png" alt="phone icon" />
+                <p><span>Number:</span><br />+88012345678</p>
+              </div>
+              <div class="col d-flex align-items-center">
+                <img src="assets/images/2.png" alt="email icon" />
+                <p><span>Email: </span><br />Mutiki@gmail.com</p>
+              </div>
+              <div class="col d-flex align-items-center">
+                <img src="assets/images/3.png" alt="address icon" />
+                <p><span>Address:</span> <br />12 North West New York 100</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-    <!-- end contact -->
-    <!-- start nav -->
-    <nav class="navbar navbar-expand-lg">
-      <div class="container">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#main"
-          aria-controls="main"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <i class="fa-solid fa-bars"></i>
-        </button>
+      </section>
+      <!-- end contact -->
 
-        <div class="collapse navbar-collapse" id="nav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="./index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./departments.html">Deparments</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./doctors.html">Doctors</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./services.html">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./blogs.html">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./about-us.html">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./contact-us.html">Contact Us</a>
-            </li>
-          </ul>
+      <!-- start nav -->
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#nav"
+            aria-controls="main"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <div class="collapse navbar-collapse" id="nav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#departments">Departments</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="doctors.html">Doctors</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#services">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#blog">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about-us">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact-us">Contact Us</a>
+              </li>
+            </ul>
+          </div>
         </div>
+      </nav>
+      <!-- end nav -->
+    </header>
+    <!-- end header -->
+
+    <!-- about-us-hero start -->
+    <section
+      id="blogs-hero"
+      class="position-relative w-100 overflow-hidden text-white text-center"
+    >
+      <img
+        src="https://cdn.wallpapersafari.com/25/85/bREnu7.jpg"
+        alt="hospital image"
+        class="img-fluid w-100"
+      />
+      <div
+        class="position-absolute w-100 text-center"
+        style="top: 40%; transform: translateY(-50%)"
+      >
+        <h1 class="display-3 font-weight-bold mb-3">From Our Blog</h1>
+        <p class="text-dark">
+          <span class="font-weight-bold">Home</span> &ndash; Blog
+        </p>
       </div>
-    </nav>
-    <!-- end nav -->
-       <!-- blogs-hero-start -->
-  <section id="blogs-hero" class="relative bg-cover bg-center py-5">
-    <div class="container mx-auto text-center flex align-items-center justify-content-center ">
-      <h1 class="text-3xl md:text-4xl font-bold mb-4">About The Mukti</h1>
-      <p><span class="fw-bold">Home</span> &ndash; Services</p>
-    </div>
-    <div class="absolute inset-0 bg-black opacity-30"></div>
-  </section>
-  <!-- blogs-hero-end -->
+    </section>
+    <!-- about-us hero end -->
 
-
-    <!--features start  -->
-    <div class="featuers row justify-content-center">
+    <!-- services start -->
+    <section id="about-us">
       <div class="title-of-section">
-        <p>We Offer Specialized</p>
-        <h2>Orthopedics To Meet Your Needs</h2>
+        <p class="text-center pb-3 pt-5 fs-2">We Offer Specialized</p>
+        <h2 class="text-center pb-4 fw-bold">Orthopedics To Meet Your Needs</h2>
       </div>
-      <div class="card" style="width: 16rem">
-        <img src="./assets/images/01 (2).png" alt="ph1" />
-        <div class="card-body">
-          <h5 class="card-title">Medical Treatment</h5>
-          <p class="card-text">
-            Lorem ipsum dolor sit amete consectetur adipisicing elite. vlote
-            optio animi?
-          </p>
-          <a href="#">
-            Read More
-            <i class="fa-solid fa-angles-right"></i>
-          </a>
+      <div class="the-content-of-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div class="card border-0">
+                <img src="./assets/images/01 (2).png" alt="ph1" />
+                <div class="card-body">
+                  <h5 class="card-title">Medical Treatment</h5>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amete consectetur adipisicing elite.
+                    vlote optio animi?
+                  </p>
+                  <a href="#" class="text-decoration-none fw-bold">
+                    Read More
+                    <i class="fa-solid fa-angles-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div class="card border-0">
+                <img src="./assets/images/02.png" alt="ph2" />
+                <div class="card-body">
+                  <h5 class="card-title">Emergency Help</h5>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amete consectetur adipisicing elite.
+                    vlote optio animi?
+                  </p>
+                  <a href="#" class="text-decoration-none fw-bold">
+                    Read More
+                    <i class="fa-solid fa-angles-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div class="card border-0">
+                <img src="./assets/images/03 (2).png" alt="ph3" />
+                <div class="card-body">
+                  <h5 class="card-title">Medical Professionals</h5>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amete consectetur adipisicing elite.
+                    vlote optio animi?
+                  </p>
+                  <a href="#" class="text-decoration-none fw-bold">
+                    Read More
+                    <i class="fa-solid fa-angles-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div class="card border-0">
+                <img src="./assets/images/04 (2).png" alt="ph4" />
+                <div class="card-body">
+                  <h5 class="card-title">Qualified Doctors</h5>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amete consectetur adipisicing elite.
+                    vlote optio animi?
+                  </p>
+                  <a href="#" class="text-decoration-none fw-bold">
+                    Read More
+                    <i class="fa-solid fa-angles-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="card" style="width: 16rem">
-        <img src="./assets/images/02.png" alt="ph1" />
-        <div class="card-body">
-          <h5 class="card-title">Emergency Help</h5>
-          <p class="card-text">
-            Lorem ipsum dolor sit amete consectetur adipisicing elite. vlote
-            optio animi?
-          </p>
-          <a href="#">
-            Read More
-            <i class="fa-solid fa-angles-right"></i>
-          </a>
-        </div>
-      </div>
-      <div class="card" style="width: 16rem">
-        <img src="./assets/images/03 (2).png" alt="ph1" />
-        <div class="card-body">
-          <h5 class="card-title">Medical Professionals</h5>
-          <p class="card-text">
-            Lorem ipsum dolor sit amete consectetur adipisicing elite. vlote
-            optio animi?
-          </p>
-          <a href="#">
-            Read More
-            <i class="fa-solid fa-angles-right"></i>
-          </a>
-        </div>
-      </div>
-      <div class="card" style="width: 16rem">
-        <img src="./assets/images/04 (2).png" alt="ph1" />
-        <div class="card-body">
-          <h5 class="card-title">Qualified Doctors</h5>
-          <p class="card-text">
-            Lorem ipsum dolor sit amete consectetur adipisicing elite. vlote
-            optio animi?
-          </p>
-          <a href="#">
-            Read More
-            <i class="fa-solid fa-angles-right"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-    <!-- ////////////////////////end featuers//////////////////// -->
+    </section>
+    <!-- end of services section -->
 
-    <!--logos-->
+    <!--lstart of logos section-->
     <section id="logos">
       <div
         class="d-flex flex-column flex-md-row align-items-center justify-content-evenly"
@@ -189,95 +246,98 @@
         </div>
       </div>
     </section>
+    <!--end of logos section  -->
+    <!-- ---------------------footer here---------------- -->
+    <footer>
+      <div class="container pt-5 pb-5 text-center text-md-start text-black-50">
+        <div class="row pt-5">
+          <div class="col-md-6 col-lg-3 pt-5">
+            <div class="Contact_info">
+              <h5 class="text-dark fw-bold">Contact info</h5>
+              <p>
+                Rapidiously seize wireless strategic theme areas and corporate
+                testing procedures. Uniquely
+              </p>
+              <ul class="list-unstyled lh-lg">
+                <li>
+                  <i class="icofont-home"></i>
+                  suite 02 New Elephant Road usa
+                </li>
+                <li>
+                  <i class="icofont-phone"></i>
+                  +880 142 258 123, 02-96936
+                </li>
+                <li class="text-dark">
+                  <i class="icofont-email"></i>
+                  info@mukti.com
+                </li>
+                <li class="text-dark">
+                  <i class="icofont-web"></i>
+                  info@mukti.com
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-6 text-center pt-5">
+            <div class="Our_doctors text-dark">
+              <img class="pb-3" src="./assets/images/logo (1).png" />
+              <p>
+                Proactive predominate empowere portals viaine robust
+                infrastructurs Convenen simp scalable ntatves rather thanineri
+                manetic action items Proactively predominate empowered portals
+                robust
+              </p>
+              <h4 class="fw-bold pb-4">Subscribe Our Newsletter</h4>
+              <div class="email-section d-flex">
+                <i class="icofont-ui-email icofont-1x"></i>
+                <input
+                  class="w-75 rounded-0 border-0 email_input"
+                  type="email"
+                  placeholder="Enter Your Email"
+                />
+                <input
+                  class="btn rounded-0 fw-bold"
+                  type="submit"
+                  value="Subscribe Now"
+                />
+              </div>
+            </div>
+          </div>
 
-     <!-- footer start -->
-     <footer>
-        <div class="container pt-5 pb-5 text-center text-md-start text-black-50">
-          <div class="row pt-5">
-            <div class="col-md-6 col-lg-3">
-              <div class="Contact_info">
-                <h5 class="text-dark fw-bold">Contact info</h5>
-                <p>
-                  Rapidiously seize wireless strategic theme areas and corporate
-                  testing procedures. Uniquely
-                </p>
-                <ul class="list-unstyled lh-lg">
-                  <li>
-                    <i class="icofont-home"></i> suite 02 New Elephant Road usa
-                  </li>
-                  <li>
-                    <i class="icofont-phone"></i> +880 142 258 123, 02-96936
-                  </li>
-                  <li class="text-dark">
-                    <i class="icofont-email"></i> info@mukti.com
-                  </li>
-                  <li class="text-dark">
-                    <i class="icofont-web"></i> info@mukti.com
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-6 text-center">
-              <div class="Our_doctors text-dark">
-                <img class="pb-3" src="/assets/images/logo (1).png" alt="Logo" />
-                <p>
-                  Proactive predominate empowered portals via robust
-                  infrastructures. Conveniently scale scalable initiatives rather
-                  than magnetic action items.
-                </p>
-                <h4 class="fw-bold pb-4">Subscribe Our Newsletter</h4>
-                <div class="email-section d-flex">
-                  <i class="icofont-ui-email icofont-1x"></i>
-                  <input
-                    class="w-75 rounded-0 border-0 email_input"
-                    type="email"
-                    placeholder="Enter Your Email"
-                  />
-                  <input
-                    class="btn btn-primary rounded-0 fw-bold"
-                    type="submit"
-                    value="Subscribe Now"
-                  />
+          <div class="col-md-6 col-lg-3 pt-5">
+            <div class="Opening_Hours">
+              <h5 class="text-dark fw-bold">Opening Hours</h5>
+              <div id="content" class="d-flex">
+                <div class="ul list-unstyled lh-lg">
+                  <li>Satarday</li>
+                  <li>Sunday</li>
+                  <li>Monday</li>
+                  <li>Tuesday</li>
+                  <li>Widnessday</li>
+                  <li>Thirsday</li>
                 </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-              <div class="Opening_Hours">
-                <h5 class="text-dark fw-bold">Opening Hours</h5>
-                <div
-                  class="d-flex justify-content-center justify-content-md-start gap-2"
-                >
-                  <ul class="list-unstyled lh-lg">
-                    <li>Saturday</li>
-                    <li>Sunday</li>
-                    <li>Monday</li>
-                    <li>Tuesday</li>
-                    <li>Wednesday</li>
-                    <li>Thursday</li>
-                  </ul>
-                  <ul class="list-unstyled lh-lg">
-                    <li>8:00 am-10:00 pm</li>
-                    <li>6:00 am-8:00 pm</li>
-                    <li>6:00 am-2:00 pm</li>
-                    <li>7:00 am-9:00 pm</li>
-                    <li>10:00 am-12:00 pm</li>
-                    <li>2:00 am-6:00 pm</li>
-                  </ul>
+                <div class="ul list-unstyled lh-lg">
+                  <li>8:00 am-10:00 pm</li>
+                  <li>6:00 am-80.00 pm</li>
+                  <li>6:00 am-2:00 pm</li>
+                  <li>7:00 am-90.00 pm</li>
+                  <li>10:00 am-12:00 pm</li>
+                  <li>2:00 am-6:00 pm</li>
                 </div>
               </div>
             </div>
           </div>
           <div class="copy-right pt-5 mt-5">
             <p class="text-center">
-              Copyright &copy; 2021 <span id="one">Mukti</span>. Designed By
+              Copyright @ 2021 <span id="one">Mukti</span> . Designed By
               <span id="two">LabArtisan</span>
             </p>
           </div>
         </div>
-      </footer>
-      <!-- footer end -->  
-    <!-- /////////////////////scripts//////////////////////// -->
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/fontawesome.min.js"></script>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

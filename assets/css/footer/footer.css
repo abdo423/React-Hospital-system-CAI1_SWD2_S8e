@@ -6,7 +6,8 @@ footer #two {
 }
 
 footer {
-    background-image: linear-gradient(rgba(226, 242, 253, 0.3), rgba(226, 242, 253, 0.3)), url('/React-Hospital-system-CAI1_SWD2_S8e/assets/images/bg1.png');
+    background-color: #f5f9ff;
+    background-image:  url('/assets/images/bg1.png');
     isolation: isolate;
 }
 footer .Contact_info i {
