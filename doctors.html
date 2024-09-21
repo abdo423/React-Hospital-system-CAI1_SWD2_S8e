@@ -1,202 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospital</title>
-    <!-- font awesome library -->
-    <link rel="stylesheet" href="assets/css/all.min.css">
-    <!-- bootstrab -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <!-- main css file -->
-    <link rel="stylesheet" href="./assets/css/doctors.css">
-    <!-- google fonts -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hospital Management System</title>
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/icofont.min.css" />
+    <link rel="stylesheet" href="/assets/css/all.min.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/icofont.min.css" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
+      rel="stylesheet"
+    />
     <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
-        rel="stylesheet">
-</head>
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
-<body>
-    <!-- start contact -->
-    <div class="contact ">
-        <div class="container mx-auto row justify-content-between align-items-center">
-            <div class="logo col-md-3 col-sm-12 ">
-                <a href="#">
-                    <img src="assets/images/logo (1).png" alt="Logo">
-                </a>
-            </div>
-            <div class="contact-us col-md-7 col-sm-12 row justify-content-between
-            align-items-center  ">
-                <div class="col d-flex align-items-center ">
-                    <img src="assets/images/1.png" alt="phone icon">
-                    <p><span>Number:</span><br>+88012345678</p>
+    <link rel="stylesheet" href="/assets/css/all.min.css" />
+    <!-- doctor.css -->
+    <link rel="stylesheet" href="assets/css/doctors.css" />
+    <!-- hero.css -->
+    <link rel="stylesheet" href="./assets/css/hero/hero.css" />
+    <!-- header css -->
+    <link rel="stylesheet" href="./assets/css/header/header.css" />
+    <!-- services.css -->
 
-                </div>
-                <div class="col d-flex align-items-center">
-                    <img src="assets/images/2.png" alt="email icon">
-                    <p><span>Email: </span><br>Mutiki@gmail.com</p>
-                </div>
-                <div class="col d-flex align-items-center ">
-                    <img src="assets/images/3.png" alt="address icon">
-                    <p><span>Address:</span> <br>12 North West New York 100</p>
-                </div>
+    <!-- footer -->
+    <link rel="stylesheet" href="./assets/css/footer/footer.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <link rel="stylesheet" href="/assets/css/responsive.css" />
+  </head>
+  <body>
+    <!-- header start -->
+    <header>
+      <!-- start contact -->
+      <section id="contact">
+        <div class="container mx-auto">
+          <div class="row align-items-center">
+            <div
+              class="logo col-md-3 col-sm-12 text-center text-md-start mb-3 mb-md-0"
+            >
+              <a href="#">
+                <img
+                  src="assets/images/logo (1).png"
+                  alt="Logo"
+                  class="img-fluid"
+                />
+              </a>
             </div>
+            <div
+              class="contact-us col-md-7 col-sm-12 d-flex justify-content-between align-items-center flex-wrap"
+            >
+              <div class="col d-flex align-items-center mb-2">
+                <img src="assets/images/1.png" alt="phone icon" />
+                <p class="mb-0 ms-2"><span>Number:</span><br />+88012345678</p>
+              </div>
+              <div class="col d-flex align-items-center mb-2">
+                <img src="assets/images/2.png" alt="email icon" />
+                <p class="mb-0 ms-2">
+                  <span>Email: </span><br />Mutiki@gmail.com
+                </p>
+              </div>
+              <div class="col d-flex align-items-center mb-2">
+                <img src="assets/images/3.png" alt="address icon" />
+                <p class="mb-0 ms-2">
+                  <span>Address:</span><br />12 North West New York 100
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-    <!-- end contact -->
-    <!-- start nav -->
-    <nav class="navbar navbar-expand-lg">
+      </section>
+      <!-- end contact -->
+
+      <!-- start nav -->
+      <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main"
-                aria-controls="main" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa-solid fa-bars"></i>
-            </button>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#nav"
+            aria-controls="main"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
 
-            <div class="collapse navbar-collapse" id="nav">
-                <ul class="navbar-nav ">
-                    <li class="nav-item "><a class="nav-link" href="./index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./departments.html">Deparments</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./doctors.html">Doctors</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./services.html">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./blogs.html">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./about-us.html">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./contact-us.html">Contact Us</a></li>
-                </ul>
-            </div>
+          <div class="collapse navbar-collapse" id="nav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./departments.html">Departments</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./doctors.html">Doctors</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./services.html">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./blogs.html">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./about-us.html">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./contact-us.html">Contact Us</a>
+              </li>
+            </ul>
+          </div>
         </div>
-    </nav>
-    <!-- end nav -->
-   
-    <!-- start landing -->
-    <div class="landing text-center">
-        <div class="content">
-            <h1 class="">Our Professional Team</h1>
-            <p>
-                <a href="index.html">Home</a> -
-                <a href="doctors.html">Doctors</a>
-            </p>
-        </div>
-    </div>
-    <!-- start landing -->
+      </nav>
+      <!-- end nav -->
+    </header>
+    <!-- end header -->
+
+    <!-- blogs hero start -->
+    <section
+      id="blogs-hero"
+      class="position-relative w-100 overflow-hidden text-white text-center"
+    >
+      <img
+        src="https://cdn.wallpapersafari.com/25/85/bREnu7.jpg"
+        alt="hospital image"
+        class="img-fluid w-100"
+      />
+      <div
+        class="position-absolute w-100 text-center"
+        style="top: 40%; transform: translateY(-50%)"
+      >
+        <h1 class="display-3 font-weight-bold mb-3">From Our Blog</h1>
+        <p class="text-dark">
+          <span class="font-weight-bold">Home</span> &ndash; Blog
+        </p>
+      </div>
+    </section>
+    <!-- blogs-hero-end -->
     <!-- start our doctors -->
-    <div class="our-doctors text-center">
-        <div class="container">
-            <h2 class="text-center mb-5"> Meet Our <br> <span>Mutiki Professional Doctors</span></h2>
-            <div class="doctors row justify-content-between ">
-                <div class="col-md-3 col-sm-6 text-start">
-                    <img src="./assets/images/01 (1).jpg" alt="Dr. Jason Kovalsky">
-                    <h3>Dr. Jason Kovalsky</h3>
-                    <p>Cardiologist</p>
-                </div>
-                <div class="col-md-3 col-sm-6 text-start">
-                    <img src="./assets/images/02 (1).jpg" alt="Patricia Mcneel">
-                    <h3>Patricia Mcneel</h3>
-                    <p>Pediatricist</p>
-                </div>
-                <div class="col-md-3 col-sm-6 text-start">
-                    <img src="./assets/images/03 (1).jpg" alt="William Khanna">
-                    <h3>William Khanna</h3>
-                    <p>Throat Specialist</p>
-                </div>
-                <div class="col-md-3 col-sm-6 text-start">
-                    <img src="./assets/images/04 (1).jpg" alt="Eric Patterson">
-                    <h3>Eric Patterson</h3>
-                    <p>Therapy</p>
-                </div>
-                <div class="col-md-3 col-sm-6 text-start">
-                    <img src="./assets/images/04 (1).jpg" alt="Mark Trevor">
-                    <h3>Mark Trevor</h3>
-                    <p>Therapy</p>
-                </div>
-                <div class="col-md-3 col-sm-6 text-start">
-                    <img src="./assets/images/03 (1).jpg" alt="Nolim Smith">
-                    <h3>Nolim Smith</h3>
-                    <p>Volunteer</p>
-                </div>
-                <div class="col-md-3 col-sm-6 text-start">
-                    <img src="./assets/images/02 (1).jpg" alt="Jason Kovalsky">
-                    <h3>Jason Kovalsky</h3>
-                    <p>Rehabilitation</p>
-                </div>
-                <div class="col-md-3 col-sm-6 text-start">
-                    <img src="./assets/images/01 (1).jpg" alt="Sarah Milles">
-                    <h3>Sarah Milles</h3>
-                    <p>Volunteer</p>
-                </div>
+    <section id="our-doctors" class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-5">
+          Meet Our <br />
+          <span class="fw-bolder">Mutiki Professional Doctors</span>
+        </h2>
+        <div
+          class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center"
+        >
+          <div class="col">
+            <div class="card h-100 border-0">
+              <img
+                src="assets/images/01 (1).jpg"
+                alt="Dr. Jason Kovalsky"
+                class="card-img-top rounded"
+              />
+              <div class="card-body px-0">
+                <h3 class="card-title h5">Dr. Jason Kovalsky</h3>
+                <p class="card-text">Cardiologist</p>
+              </div>
             </div>
+          </div>
+          <div class="col">
+            <div class="card h-100 border-0">
+              <img
+                src="assets/images/02 (1).jpg"
+                alt="Patricia Mcneel"
+                class="card-img-top rounded"
+              />
+              <div class="card-body px-0">
+                <h3 class="card-title h5">Patricia Mcneel</h3>
+                <p class="card-text">Pediatrician</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100 border-0">
+              <img
+                src="assets/images/03 (1).jpg"
+                alt="William Khanna"
+                class="card-img-top rounded"
+              />
+              <div class="card-body px-0">
+                <h3 class="card-title h5">William Khanna</h3>
+                <p class="card-text">Throat Specialist</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100 border-0">
+              <img
+                src="assets/images/04 (1).jpg"
+                alt="Eric Patterson"
+                class="card-img-top rounded"
+              />
+              <div class="card-body px-0">
+                <h3 class="card-title h5">Eric Patterson</h3>
+                <p class="card-text">Therapist</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100 border-0">
+              <img
+                src="assets/images/04 (1).jpg"
+                alt="Mark Trevor"
+                class="card-img-top rounded"
+              />
+              <div class="card-body px-0">
+                <h3 class="card-title h5">Mark Trevor</h3>
+                <p class="card-text">Therapist</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100 border-0">
+              <img
+                src="assets/images/03 (1).jpg"
+                alt="Nolim Smith"
+                class="card-img-top rounded"
+              />
+              <div class="card-body px-0">
+                <h3 class="card-title h5">Nolim Smith</h3>
+                <p class="card-text">Volunteer</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100 border-0">
+              <img
+                src="assets/images/02 (1).jpg"
+                alt="Jason Kovalsky"
+                class="card-img-top rounded"
+              />
+              <div class="card-body px-0">
+                <h3 class="card-title h5">Jason Kovalsky</h3>
+                <p class="card-text">Rehabilitation Specialist</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100 border-0">
+              <img
+                src="assets/images/01 (1).jpg"
+                alt="Sarah Milles"
+                class="card-img-top rounded"
+              />
+              <div class="card-body px-0">
+                <h3 class="card-title h5">Sarah Milles</h3>
+                <p class="card-text">Volunteer</p>
+              </div>
+            </div>
+          </div>
         </div>
-
-    </div>
+      </div>
+    </section>
     <!-- end our doctors -->
 
     <!-- start info -->
-    <div class="info container text-center ">
-        <div class="row">
-            <div class="contact-info col-md-3 col-sm-12">
-                <h3>Contact info</h3>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, natus.
-                </p>
-                <p>
-                    <i class="fa-solid fa-house house"></i>
-                    Suite New Elephant Road USA
-                </p>
-                <p>
-                    <i class="fa-solid fa-phone phone"></i>
-                    +880 123 2323 , 02-3213
-                </p>
-                <p>
-                    <i class="fa-solid fa-envelope email"></i>
-                    info@mutki.com
-                </p>
-                <p>
-                    <i class="fa-solid fa-globe global"></i>
-                    info@mutki.com
-                </p>
-            </div>
-            <div class="newsletter col-md-6 col-sm-12 justify-content-center">
 
-
-                <img src="assets/imgs/logo.png" alt="">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, libero. Natus odit et dolores
-                    itaque enim officia explicabo libero? Vero.</p>
-                <h3>Subsrcibe Our Newsletter</h3>
-                <form action="" class="d-flex justify-content-center align-items-center">
-                    <i class="fa-solid fa-paper-plane"></i>
-                    <input type="email" placeholder="Enter Your Email">
-                    <button class="btn btn-primary">Subscribe Now</button>
-                </form>
-
+    <!-- ---------------------footer here---------------- -->
+    <footer>
+      <div class="container pt-5 pb-5 text-center text-md-start text-black-50">
+        <div class="row pt-5">
+          <div class="col-md-6 col-xl-3 pt-5">
+            <div class="Contact_info">
+              <h5 class="text-dark fw-bold">Contact info</h5>
+              <p>
+                Rapidiously seize wireless strategic theme areas and corporate
+                testing procedures. Uniquely
+              </p>
+              <ul class="list-unstyled lh-lg">
+                <li>
+                  <i class="icofont-home"></i>
+                  suite 02 New Elephant Road usa
+                </li>
+                <li>
+                  <i class="icofont-phone"></i>
+                  +880 142 258 123, 02-96936
+                </li>
+                <li class="text-dark">
+                  <i class="icofont-email"></i>
+                  info@mukti.com
+                </li>
+                <li class="text-dark">
+                  <i class="icofont-web"></i>
+                  info@mukti.com
+                </li>
+              </ul>
             </div>
-            <div class="opening-hours col-md-3 col-sm-12">
-                <h3>Opening Hours</h3>
-                <pre>Monday        6:00 am-2:00 pm</pre>
-                <pre>Tuesday       7:00 am-9:00 pm</pre>
-                <pre>Wendesday     6:00 am-2:00 pm</pre>
-                <pre>Thursday      7:00 am-9:00 pm</pre>
-                <pre>Friday        6:00 am-2:00 pm</pre>
-                <pre>saturday      7:00 am-9:00 pm</pre>
-                <pre>Sundady       7:00 am-9:00 pm</pre>
+          </div>
+          <div class="col-md-6 col-xl-6 text-center pt-5">
+            <div class="Our_doctors text-dark">
+              <img class="pb-3" src="./assets/images/logo (1).png" />
+              <p>
+                Proactive predominate empowere portals viaine robust
+                infrastructurs Convenen simp scalable ntatves rather thanineri
+                manetic action items Proactively predominate empowered portals
+                robust
+              </p>
+              <h4 class="fw-bold pb-4">Subscribe Our Newsletter</h4>
+              <div class="email-section d-flex">
+                <i class="icofont-ui-email icofont-1x"></i>
+                <input
+                  class="w-75 rounded-0 border-0 email_input"
+                  type="email"
+                  placeholder="Enter Your Email"
+                />
+                <input
+                  class="btn rounded-0 fw-bold"
+                  type="submit"
+                  value="Subscribe Now"
+                />
+              </div>
             </div>
+          </div>
+
+          <div class="col-md-6 col-xl-3 pt-5">
+            <div class="Opening_Hours">
+              <h5 class="text-dark fw-bold">Opening Hours</h5>
+              <div id="content" class="d-flex">
+                <div class="ul list-unstyled lh-lg">
+                  <li>Satarday</li>
+                  <li>Sunday</li>
+                  <li>Monday</li>
+                  <li>Tuesday</li>
+                  <li>Widnessday</li>
+                  <li>Thirsday</li>
+                </div>
+                <div class="ul list-unstyled lh-lg">
+                  <li>8:00 am-10:00 pm</li>
+                  <li>6:00 am-80.00 pm</li>
+                  <li>6:00 am-2:00 pm</li>
+                  <li>7:00 am-90.00 pm</li>
+                  <li>10:00 am-12:00 pm</li>
+                  <li>2:00 am-6:00 pm</li>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="copy-right pt-5 mt-5">
+            <p class="text-center">
+              Copyright @ 2021 <span id="one">Mukti</span> . Designed By
+              <span id="two">LabArtisan</span>
+            </p>
+          </div>
         </div>
-    </div>
-    </div>
+      </div>
+    </footer>
 
-    <!-- end info -->
-    <!-- start footer -->
-    <div class="footer container text-center">
-        <p>Copyright &copy; 2021 <span class="text-primary">Mutki</span>. All Rights reserved By <span
-                class="bold fw=2">LabArtsian</span> </p>
-    </div>
-    <!-- end footer -->
-
-
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <!-- <script src="assets/js/all.min.js"></script> -->
-</body>
-
+    <!-- Bootstrap JS -->
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

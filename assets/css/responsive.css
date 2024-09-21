@@ -62,10 +62,18 @@
     justify-content: center;
         }
     }
-    @media (min-width:768px) {
+    @media (min-width:1440px) {
       .Opening_Hours #content  {
         justify-content: space-between;
             }
         
       
     }
+    @media (min-width:768px) {
+      .Opening_Hours #content  {
+        justify-content: start;
+            }
+        
+      
+    }
+

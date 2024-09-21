@@ -20,7 +20,8 @@
 
     <link rel="stylesheet" href="/assets/css/all.min.css" />
 
-    <link rel="stylesheet" href="assets/css/blogs.css" />
+    <!-- hero.css -->
+    <link rel="stylesheet" href="./assets/css/hero/hero.css" />
     <!-- header css -->
     <link rel="stylesheet" href="./assets/css/header/header.css" />
     <!-- services.css -->
@@ -28,11 +29,7 @@
       rel="stylesheet"
       href="./assets/css/services-and-offers/services.css"
     />
-    <!-- ourteams and appointments -->
-    <link
-      rel="stylesheet"
-      href="./assets/css/ourTeams-and-appointment/ourTeam-appointment.css"
-    />
+
     <!-- footer -->
     <link rel="stylesheet" href="./assets/css/footer/footer.css" />
     <!-- departments -->
@@ -46,29 +43,37 @@
     <header>
       <!-- start contact -->
       <section id="contact">
-        <div
-          class="container mx-auto justify-content-between align-items-center"
-        >
-          <div class="row">
-            <div class="logo col-md-3 col-sm-12">
+        <div class="container mx-auto">
+          <div class="row align-items-center">
+            <div
+              class="logo col-md-3 col-sm-12 text-center text-md-start mb-3 mb-md-0"
+            >
               <a href="#">
-                <img src="assets/images/logo (1).png" alt="Logo" />
+                <img
+                  src="assets/images/logo (1).png"
+                  alt="Logo"
+                  class="img-fluid"
+                />
               </a>
             </div>
             <div
-              class="contact-us col-md-7 col-sm-12 row justify-content-between align-items-center"
+              class="contact-us col-md-7 col-sm-12 d-flex justify-content-between align-items-center flex-wrap"
             >
-              <div class="col d-flex align-items-center">
+              <div class="col d-flex align-items-center mb-2">
                 <img src="assets/images/1.png" alt="phone icon" />
-                <p><span>Number:</span><br />+88012345678</p>
+                <p class="mb-0 ms-2"><span>Number:</span><br />+88012345678</p>
               </div>
-              <div class="col d-flex align-items-center">
+              <div class="col d-flex align-items-center mb-2">
                 <img src="assets/images/2.png" alt="email icon" />
-                <p><span>Email: </span><br />Mutiki@gmail.com</p>
+                <p class="mb-0 ms-2">
+                  <span>Email: </span><br />Mutiki@gmail.com
+                </p>
               </div>
-              <div class="col d-flex align-items-center">
+              <div class="col d-flex align-items-center mb-2">
                 <img src="assets/images/3.png" alt="address icon" />
-                <p><span>Address:</span> <br />12 North West New York 100</p>
+                <p class="mb-0 ms-2">
+                  <span>Address:</span><br />12 North West New York 100
+                </p>
               </div>
             </div>
           </div>
@@ -92,27 +97,27 @@
           </button>
 
           <div class="collapse navbar-collapse" id="nav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link" href="#home">Home</a>
+                <a class="nav-link" href="/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#departments">Departments</a>
+                <a class="nav-link" href="./departments.html">Departments</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="doctors.html">Doctors</a>
+                <a class="nav-link" href="./doctors.html">Doctors</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#services">Services</a>
+                <a class="nav-link" href="./services.html">Services</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#blog">Blog</a>
+                <a class="nav-link" href="./blogs.html">Blog</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#about-us">About Us</a>
+                <a class="nav-link" href="./about-us.html">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#contact-us">Contact Us</a>
+                <a class="nav-link" href="./contact-us.html">Contact Us</a>
               </li>
             </ul>
           </div>
@@ -136,15 +141,15 @@
         class="position-absolute w-100 text-center"
         style="top: 40%; transform: translateY(-50%)"
       >
-        <h1 class="display-3 font-weight-bold mb-3">From Our Blog</h1>
+        <h1 class="display-3 font-weight-bold mb-3">Department The Mutki</h1>
         <p class="text-dark">
-          <span class="font-weight-bold">Home</span> &ndash; Blog
+          <span class="font-weight-bold">Home</span> &ndash; Department
         </p>
       </div>
     </section>
     <!-- blogs-hero-end -->
     <!-- department section -->
-    <section class="Departments_center text-center pt-5 pb-5 ">
+    <section class="Departments_center text-center pt-5 pb-5">
       <div class="container">
         <div class="title">
           <h2 class="fw-light">We Are The</h2>
@@ -156,10 +161,7 @@
           <div class="col-md-3 col-lg-2 border-0 card">
             <h4 class="pt-3 fs-5 fw-bold">Plastic Surgery</h4>
             <div class="icon_holder">
-              <img
-                class="pt-3 pb-4"
-                src="/assets/images/01.png"
-              />
+              <img class="pt-3 pb-4" src="/assets/images/01.png" />
             </div>
             <a class="btn fw-bold card-btn"
               >Read More<i class="icofont-double-right"></i
@@ -168,10 +170,7 @@
           <div class="col-md-3 col-lg-2 border-0 card">
             <h4 class="pt-3 fs-5 fw-bold">Rhinology</h4>
             <div class="icon_holder">
-              <img
-                class="pt-3 pb-4"
-                src="/assets/images/01.png"
-              />
+              <img class="pt-3 pb-4" src="/assets/images/01.png" />
             </div>
             <a class="btn fw-bold card-btn"
               >Read More<i class="icofont-double-right"></i
@@ -180,10 +179,7 @@
           <div class="col-md-3 col-lg-2 border-0 card">
             <h4 class="pt-3 fs-5 fw-bold">Urology</h4>
             <div class="icon_holder">
-              <img
-                class="pt-3 pb-4"
-                src="/assets/images/03.png"
-              />
+              <img class="pt-3 pb-4" src="/assets/images/03.png" />
             </div>
             <a class="btn fw-bold card-btn"
               >Read More<i class="icofont-double-right"></i
@@ -192,10 +188,7 @@
           <div class="col-md-3 col-lg-2 border-0 card">
             <h4 class="pt-3 fs-5 fw-bold">Gastroenterology</h4>
             <div class="icon_holder">
-              <img
-                class="pt-3 pb-4"
-                src="/assets/images/04.png"
-              />
+              <img class="pt-3 pb-4" src="/assets/images/04.png" />
             </div>
             <a class="btn fw-bold card-btn"
               >Read More<i class="icofont-double-right"></i
@@ -204,10 +197,7 @@
           <div class="col-md-3 col-lg-2 border-0 card">
             <h4 class="pt-3 fs-5 fw-bold">Otology</h4>
             <div class="icon_holder">
-              <img
-                class="pt-3 pb-4"
-                src="/assets/images/05.png"
-              />
+              <img class="pt-3 pb-4" src="/assets/images/05.png" />
             </div>
             <a class="btn fw-bold card-btn"
               >Read More<i class="icofont-double-right"></i
@@ -216,10 +206,7 @@
           <div class="col-md-3 col-lg-2 border-0 card">
             <h4 class="pt-3 fs-5 fw-bold">Pulmonology</h4>
             <div class="icon_holder">
-              <img
-                class="pt-3 pb-4"
-                src="/assets/images/06.png"
-              />
+              <img class="pt-3 pb-4" src="/assets/images/06.png" />
             </div>
             <a class="btn fw-bold card-btn"
               >Read More<i class="icofont-double-right"></i
@@ -228,10 +215,7 @@
           <div class="col-md-3 col-lg-2 border-0 card">
             <h4 class="pt-3 fs-5 fw-bold">Urology</h4>
             <div class="icon_holder">
-              <img
-                class="pt-3 pb-4"
-                src="/assets/images/01.png"
-              />
+              <img class="pt-3 pb-4" src="/assets/images/01.png" />
             </div>
             <a class="btn fw-bold card-btn"
               >Read More<i class="icofont-double-right"></i
@@ -240,10 +224,7 @@
           <div class="col-md-3 col-lg-2 border-0 card">
             <h4 class="pt-3 fs-5 fw-bold">Dental Care</h4>
             <div class="icon_holder">
-              <img
-                class="pt-3 pb-4"
-                src="/assets/images/01.png"
-              />
+              <img class="pt-3 pb-4" src="/assets/images/01.png" />
             </div>
             <a class="btn fw-bold card-btn"
               >Read More<i class="icofont-double-right"></i
@@ -252,10 +233,7 @@
           <div class="col-md-3 col-lg-2 border-0 card">
             <h4 class="pt-3 fs-5 fw-bold">Orthopedics</h4>
             <div class="icon_holder">
-              <img
-                class="pt-3 pb-4"
-                src="/assets/images/03.png"
-              />
+              <img class="pt-3 pb-4" src="/assets/images/03.png" />
             </div>
             <a class="btn fw-bold card-btn"
               >Read More<i class="icofont-double-right"></i
@@ -264,10 +242,7 @@
           <div class="col-md-3 col-lg-2 border-0 card">
             <h4 class="pt-3 fs-5 fw-bold">Eye Care</h4>
             <div class="icon_holder">
-              <img
-                class="pt-3 pb-4"
-                src="/assets/images/04.png"
-              />
+              <img class="pt-3 pb-4" src="/assets/images/04.png" />
             </div>
             <a class="btn fw-bold card-btn"
               >Read More<i class="icofont-double-right"></i
@@ -281,7 +256,7 @@
     <footer>
       <div class="container pt-5 pb-5 text-center text-md-start text-black-50">
         <div class="row pt-5">
-          <div class="col-md-6 col-lg-3 pt-5">
+          <div class="col-md-6 col-xl-3 pt-5">
             <div class="Contact_info">
               <h5 class="text-dark fw-bold">Contact info</h5>
               <p>
@@ -308,7 +283,7 @@
               </ul>
             </div>
           </div>
-          <div class="col-md-6 col-lg-6 text-center pt-5">
+          <div class="col-md-6 col-xl-6 text-center pt-5">
             <div class="Our_doctors text-dark">
               <img class="pb-3" src="./assets/images/logo (1).png" />
               <p>
@@ -334,7 +309,7 @@
             </div>
           </div>
 
-          <div class="col-md-6 col-lg-3 pt-5">
+          <div class="col-md-6 col-xl-3 pt-5">
             <div class="Opening_Hours">
               <h5 class="text-dark fw-bold">Opening Hours</h5>
               <div id="content" class="d-flex">
@@ -366,7 +341,7 @@
         </div>
       </div>
     </footer>
-
+    <!-- ---------------------footer end---------------- -->
     <!-- Bootstrap JS -->
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
   </body>

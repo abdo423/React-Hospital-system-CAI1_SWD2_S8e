@@ -5,15 +5,9 @@
 
 /* start contact */
 
-.contact-us .container p {
-  padding-right: 30%;
-}
 
-.contact-us .container {
-  width: 80%;
-  padding-left: 30px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.01), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
-}
+
+
 
 .contact-us .container .infocard::after {
   content: "";
@@ -30,6 +24,4 @@ iframe {
 }
 
 /* Add space between contact us section and map */
-.contact-us {
-  margin-bottom: 50px; /* Adjust this value as needed */
-}
+

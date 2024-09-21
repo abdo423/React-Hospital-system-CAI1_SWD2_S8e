@@ -13,21 +13,24 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
-    <link rel="stylesheet" href="/assets/css/all.min.css"/>
+    <link rel="stylesheet" href="/assets/css/all.min.css" />
 
+    <!-- header css -->
+    <link rel="stylesheet" href="./assets/css/header/header.css" />
+    <!-- hero.css -->
+    <link rel="stylesheet" href="./assets/css/hero/hero.css" />
+    <!--blogs  -->
     <link rel="stylesheet" href="assets/css/blogs.css" />
-      <!-- header css -->
-      <link rel="stylesheet" href="./assets/css/header/header.css" />
-      <!-- services.css -->
-      <link rel="stylesheet" href="./assets/css/services-and-offers/services.css" />
-      <!-- ourteams and appointments -->
-       <link rel="stylesheet" href="./assets/css/ourTeams-and-appointment/ourTeam-appointment.css">
-      <!-- footer -->
-       <link rel="stylesheet" href="./assets/css/footer/footer.css">
-      <link rel="stylesheet" href="assets/css/style.css" />
-  
+
+    <!-- footer -->
+    <link rel="stylesheet" href="./assets/css/footer/footer.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+
     <link rel="stylesheet" href="/assets/css/responsive.css" />
   </head>
   <body>
@@ -35,31 +38,40 @@
     <header>
       <!-- start contact -->
       <section id="contact">
-        <div class="container mx-auto justify-content-between align-items-center">
-          <div class="row">
-            <div class="logo col-md-3 col-sm-12">
+        <div class="container mx-auto">
+          <div class="row align-items-center">
+            <div
+              class="logo col-md-3 col-sm-12 text-center text-md-start mb-3 mb-md-0"
+            >
               <a href="#">
-                <img src="assets/images/logo (1).png" alt="Logo" />
+                <img
+                  src="assets/images/logo (1).png"
+                  alt="Logo"
+                  class="img-fluid"
+                />
               </a>
             </div>
             <div
-              class="contact-us col-md-7 col-sm-12 row justify-content-between align-items-center"
+              class="contact-us col-md-7 col-sm-12 d-flex justify-content-between align-items-center flex-wrap"
             >
-              <div class="col d-flex align-items-center">
+              <div class="col d-flex align-items-center mb-2">
                 <img src="assets/images/1.png" alt="phone icon" />
-                <p><span>Number:</span><br />+88012345678</p>
+                <p class="mb-0 ms-2"><span>Number:</span><br />+88012345678</p>
               </div>
-              <div class="col d-flex align-items-center">
+              <div class="col d-flex align-items-center mb-2">
                 <img src="assets/images/2.png" alt="email icon" />
-                <p><span>Email: </span><br />Mutiki@gmail.com</p>
+                <p class="mb-0 ms-2">
+                  <span>Email: </span><br />Mutiki@gmail.com
+                </p>
               </div>
-              <div class="col d-flex align-items-center">
+              <div class="col d-flex align-items-center mb-2">
                 <img src="assets/images/3.png" alt="address icon" />
-                <p><span>Address:</span> <br />12 North West New York 100</p>
+                <p class="mb-0 ms-2">
+                  <span>Address:</span><br />12 North West New York 100
+                </p>
               </div>
             </div>
           </div>
-       
         </div>
       </section>
       <!-- end contact -->
@@ -80,27 +92,27 @@
           </button>
 
           <div class="collapse navbar-collapse" id="nav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ">
               <li class="nav-item">
-                <a class="nav-link" href="#home">Home</a>
+                <a class="nav-link" href="/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#departments">Departments</a>
+                <a class="nav-link" href="./departments.html">Departments</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="doctors.html">Doctors</a>
+                <a class="nav-link" href="./doctors.html">Doctors</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#services">Services</a>
+                <a class="nav-link" href="./services.html">Services</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#blog">Blog</a>
+                <a class="nav-link" href="./blogs.html">Blog</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#about-us">About Us</a>
+                <a class="nav-link" href="./about-us.html">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#contact-us">Contact Us</a>
+                <a class="nav-link" href="./contact-us.html">Contact Us</a>
               </li>
             </ul>
           </div>
@@ -244,20 +256,7 @@
             >3</a
           >
         </li>
-        <li class="page-item">
-          <a
-            class="page-link rounded-circle d-flex align-items-center justify-content-center"
-            href="#"
-            >4</a
-          >
-        </li>
-        <li class="page-item">
-          <a
-            class="page-link rounded-circle d-flex align-items-center justify-content-center"
-            href="#"
-            >5</a
-          >
-        </li>
+
         <li class="page-item">
           <a
             class="page-link rounded-circle d-flex align-items-center justify-content-center"
@@ -269,55 +268,67 @@
     </section>
     <!-- pagination section end -->
 
-    <!-- ---------------------footer here---------------- -->
-    <footer>
-      <div class="container pt-5 pb-5 text-center text-md-start text-black-50" >
+     <!-- ---------------------footer here---------------- -->
+     <footer>
+      <div class="container pt-5 pb-5 text-center text-md-start text-black-50">
         <div class="row pt-5">
-          <div class="col-md-6 col-lg-3 pt-5">
-            <div class="Contact_info "> 
+          <div class="col-md-6 col-xl-3 pt-5">
+            <div class="Contact_info">
               <h5 class="text-dark fw-bold">Contact info</h5>
-              <p>Rapidiously seize wireless strategic
-                theme areas and corporate testing
-                procedures. Uniquely</p>
-                <ul class="list-unstyled lh-lg">
-                  <li>
-                    <i class="icofont-home"></i>
-                    suite 02 New Elephant Road usa
-                  </li>
-                  <li>
-                    <i class="icofont-phone"></i>
-                    +880 142 258 123, 02-96936
-                  </li>
-                  <li  class="text-dark">
-                    <i class="icofont-email"></i>
-                    info@mukti.com
-                  </li>
-                  <li class="text-dark">
-                    <i class="icofont-web"></i>
-                    info@mukti.com
-                  </li>
-                </ul>
+              <p>
+                Rapidiously seize wireless strategic theme areas and corporate
+                testing procedures. Uniquely
+              </p>
+              <ul class="list-unstyled lh-lg">
+                <li>
+                  <i class="icofont-home"></i>
+                  suite 02 New Elephant Road usa
+                </li>
+                <li>
+                  <i class="icofont-phone"></i>
+                  +880 142 258 123, 02-96936
+                </li>
+                <li class="text-dark">
+                  <i class="icofont-email"></i>
+                  info@mukti.com
+                </li>
+                <li class="text-dark">
+                  <i class="icofont-web"></i>
+                  info@mukti.com
+                </li>
+              </ul>
             </div>
           </div>
-          <div class="col-md-6 col-lg-6 text-center pt-5">
+          <div class="col-md-6 col-xl-6 text-center pt-5">
             <div class="Our_doctors text-dark">
-              <img class="pb-3" src="./assets/images/logo (1).png">
-              <p>Proactive predominate empowere portals viaine robust infrastructurs Convenen
-                simp scalable ntatves rather thanineri manetic action items Proactively
-                predominate empowered portals robust</p>
-                <h4 class="fw-bold pb-4">Subscribe Our Newsletter</h4>
-                <div class="email-section d-flex">
-                  <i class="icofont-ui-email icofont-1x"></i>
-                  <input class="w-75 rounded-0 border-0 email_input" type="email" placeholder="Enter Your Email">
-                  <input class="btn rounded-0 fw-bold" type="submit" value="Subscribe Now">
-                </div>
+              <img class="pb-3" src="./assets/images/logo (1).png" />
+              <p>
+                Proactive predominate empowere portals viaine robust
+                infrastructurs Convenen simp scalable ntatves rather thanineri
+                manetic action items Proactively predominate empowered portals
+                robust
+              </p>
+              <h4 class="fw-bold pb-4">Subscribe Our Newsletter</h4>
+              <div class="email-section d-flex">
+                <i class="icofont-ui-email icofont-1x"></i>
+                <input
+                  class="w-75 rounded-0 border-0 email_input"
+                  type="email"
+                  placeholder="Enter Your Email"
+                />
+                <input
+                  class="btn rounded-0 fw-bold"
+                  type="submit"
+                  value="Subscribe Now"
+                />
+              </div>
             </div>
           </div>
-          
-          <div class="col-md-6 col-lg-3 pt-5">
-            <div class="Opening_Hours ">
+
+          <div class="col-md-6 col-xl-3 pt-5">
+            <div class="Opening_Hours">
               <h5 class="text-dark fw-bold">Opening Hours</h5>
-              <div id="content" class=" d-flex  ">
+              <div id="content" class="d-flex">
                 <div class="ul list-unstyled lh-lg">
                   <li>Satarday</li>
                   <li>Sunday</li>
@@ -338,10 +349,13 @@
             </div>
           </div>
           <div class="copy-right pt-5 mt-5">
-            <p class="text-center">Copyright @ 2021 <span id="one">Mukti</span> . Designed By <span id="two">LabArtisan</span></p>
+            <p class="text-center">
+              Copyright @ 2021 <span id="one">Mukti</span> . Designed By
+              <span id="two">LabArtisan</span>
+            </p>
           </div>
         </div>
-      </div>  
+      </div>
     </footer>
 
     <!-- Bootstrap JS -->
