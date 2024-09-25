@@ -1,37 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
-import axios from 'axios';
+import React from 'react';
+import Departments from '../Departments/DCompopemts/Departments';
 
-const Departments = () => {
-    const [departments, setDepartments] = useState([]);
 
-    useEffect(() => {
-        // Fetch data from JSONPlaceholder API as a placeholder for departments
-        axios.get('https://jsonplaceholder.typicode.com/posts')
-            .then(response => {
-                setDepartments(response.data);
-            })
-            .catch(error => {
-                console.error('There was an error fetching the departments!', error);
-            });
-    }, []);
+const departmentsData = [
+  { title: 'Plastic Surgery', imageUrl: '/images/01.png' },
+  { title: 'Rhinology', imageUrl: '/images/01.png' },
+  { title: 'Urology', imageUrl: '/images/03.png' },
+  { title: 'Gastroenterology', imageUrl: '/images/04.png' },
+  { title: 'Otology', imageUrl: '/images/05.png' },
+  { title: 'Pulmonology', imageUrl: '/images/06.png' },
+  { title: 'Otology', imageUrl: '/images/05.png' },
+  { title: 'Dental Care', imageUrl: '/images/01.png' },
+  { title: 'Orthopedics', imageUrl: '/images/03.png' },
+  { title: 'Eye Care', imageUrl: '/images/04.png' }
+];
 
-    return (
-        <Container>
-            <Row>
-                {departments.slice(0, 10).map(department => (
-                    <Col key={department.id} sm={12} md={6} lg={4} className="mb-4">
-                        <Card>
-                            <Card.Body>
-                                <Card.Title>{department.title}</Card.Title>
-                                <Card.Text>{department.body}</Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                ))}
-            </Row>
-        </Container>
-    );
-};
+const App = () => (
+  <Departments
+    title="Best Our Departments Center"
+    departments={departmentsData}
+  />
+);
 
-export default Departments;
+export default App;
