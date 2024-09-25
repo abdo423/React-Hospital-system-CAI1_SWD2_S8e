@@ -1,5 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import PagesHeroSection from '../../Shared/PagesHeroSection/PagesHeroSection';
 
 const doctors = [
     { id: 1, name: 'Dr. John Doe', specialty: 'Cardiology' },
@@ -9,17 +10,20 @@ const doctors = [
 
 const Doctors = () => {
     return (
-        <div className="container mt-5">
-            <h1 className="text-center mb-4">Our Doctors</h1>
-            <ul className="list-group">
-                {doctors.map((doctor) => (
-                    <li key={doctor.id} className="list-group-item">
-                        <h2>{doctor.name}</h2>
-                        <p>Specialty: {doctor.specialty}</p>
-                    </li>
-                ))}
-            </ul>
-        </div>
+        <>
+            <PagesHeroSection title="Our Professional Team" subTitle="Doctors" />
+            <div className="container mt-5">
+                <h1 className="text-center mb-4">Our Doctors</h1>
+                <ul className="list-group">
+                    {doctors.map((doctor) => (
+                        <li key={doctor.id} className="list-group-item">
+                            <h2>{doctor.name}</h2>
+                            <p>Specialty: {doctor.specialty}</p>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </>
     );
 };
 

@@ -17,6 +17,7 @@ const Departments = () => {
     }, []);
 
     return (
+        
         <Container>
             <Row>
                 {departments.slice(0, 10).map(department => (

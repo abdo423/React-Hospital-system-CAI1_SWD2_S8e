@@ -1,0 +1,46 @@
+:root {
+    --primary-color: #0071ef;
+    --secondary-color: #98a1b1;
+    --section-padding: 30px;
+  }
+*{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: "Roboto", sans-serif;
+  }
+  ul {
+    list-style: none;
+  }
+
+
+  /* end global rules */
+  
+  /* end nav */
+  /* blog-hero */
+  #heroSection {
+
+    background-size: cover;
+    background-position: center;
+    height: 400px; /* Adjust height as needed */
+  }
+#heroSection h1 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin: 20px 0;
+    font-weight: 700;
+
+}
+#heroSection span {
+
+    font-size: 1rem;
+    font-weight: 700;
+}
