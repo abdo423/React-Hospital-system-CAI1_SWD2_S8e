@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import PagesHeroSection from '../../Shared/PagesHeroSection/PagesHeroSection';
 
 const ContactUs = () => {
     const [formData, setFormData] = useState({
@@ -23,7 +24,9 @@ const ContactUs = () => {
     };
 
     return (
-        <div className="container mt-5">
+        <>
+        <PagesHeroSection title="Contact Information" subTitle="Contact Us" />
+         <div className="container mt-5">
             <h2>Contact Us</h2>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
@@ -65,6 +68,8 @@ const ContactUs = () => {
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
         </div>
+        </>
+       
     );
 };
 

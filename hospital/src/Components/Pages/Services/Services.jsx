@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import PagesHeroSection from '../../Shared/PagesHeroSection/PagesHeroSection';
 const servicesData = [
     {
         id: 1,
@@ -24,6 +24,9 @@ const servicesData = [
 
 const Services = () => {
     return (
+        <>
+         <PagesHeroSection title="Our Best Services" subTitle="Services" />
+
         <div className="container mt-5">
             <h2 className="text-center mb-4">Our Services</h2>
             <div className="row">
@@ -40,6 +43,7 @@ const Services = () => {
                 ))}
             </div>
         </div>
+        </>
     );
 };
 

@@ -1,0 +1,47 @@
+:root {
+    --primary-color: #0071ef;
+    --secondary-color: #98a1b1;
+  }
+  
+  .feeds {
+    background-color: #f5f9ff;
+    padding: 80px 0;
+  }
+  
+  .title {
+    font-weight: 300;
+  }
+  
+  .subtitle {
+    font-weight: 700;
+    font-size: 2rem;
+  }
+  
+  .cardBody {
+    padding: 15px;
+  }
+  
+  .cardBody h5 {
+    max-width: 400px;
+  }
+  
+  .cardText {
+    color: var(--secondary-color);
+  }
+  
+  .cardButton {
+    text-decoration: none;
+    color: var(--primary-color);
+  }
+  
+  .cardButton:hover {
+    text-decoration: underline;
+  }
+  
+  .cardTitle {
+    font-weight: 700;
+  }
+  
+  .cardDate {
+    color: var(--primary-color);
+  }

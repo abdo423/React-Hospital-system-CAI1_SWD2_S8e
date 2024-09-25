@@ -1,0 +1,35 @@
+.pagination {
+    margin: 50px 0;
+
+  }
+  
+  .pageItem .pageLink {
+    width: 60px;
+    height: 60px;
+    line-height: 38px;
+    background-color: transparent;
+    border: 1px solid #f5f5f5;
+    text-decoration: none;
+  }
+  
+  .pageItem.active .pageLink {
+    background-color: var(--primary-color); /* Bootstrap's primary color */
+    border-color: var(--primary-color);
+  }
+  
+
+  
+  .pageItem .pageLink:focus {
+    box-shadow: none;
+  }
+  
+  .pageItem:not(.active) .pageLink {
+    color: black;
+  }
+  
+  /* Add this to ensure Bootstrap's flexbox utilities work with the module */
+.paginationList {
+    padding-left: 0;
+    list-style: none;
+}
+
