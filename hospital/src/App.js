@@ -1,14 +1,19 @@
-import logo from "./logo.svg";
+
 import "./App.css";
 import Header from "./Components/Shared/Header/Header";
-import Footer from "./Components/Shared/Footer/Footer";
 import { Outlet } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import Footer from "../src/Components/Shared/Footer/Footer";
+import FooterHome from "./Components/Shared/Footer/HomeFooter/FooterHome.jsx";
 function App() {
+  const location = useLocation();
+  const isHomeRoute = location.pathname === "/";
+
   return (
     <>
       <Header />
-      <Outlet/>
-      <Footer />
+      <Outlet />
+      {isHomeRoute ? <FooterHome /> : <Footer/>}
     </>
   );
 }

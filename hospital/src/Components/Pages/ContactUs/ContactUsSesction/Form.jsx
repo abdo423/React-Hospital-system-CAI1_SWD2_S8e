@@ -26,28 +26,28 @@ const Form = () => {
     };
 
     return (
-        <section className="contact-us pt-5 pb-5 mp-5">
+        <section className={` ${FormCSS.ContactUs} pt-5 pb-5 mp-5`} >
             <div className="container pt-5 pb-5 ">
                 <div className="row ">
                     <div className="col-md-12 col-lg-6">
                         <h3 className="pb-3">Contact Information</h3>
-                        <div className={FormCSS.infocard}>
+                        <div className={FormCSS.infoCard}>
                             <h5>Office Address:</h5>
                             <p className="text-black-50">
                                 Suite 02, Level 12, Sahera Tropical Center 218 <br /> New Elephant Road, Dhaka - 1205
                             </p>
                         </div>
-                        <div className={FormCSS.infocard}>
+                        <div className={FormCSS.infoCard}>
                             <h5>Phone Number:</h5>
                             <p className="text-black-50">
                                 +8801678170593, 01919-264687, <br /> 02-9611936
                             </p>
                         </div>
-                        <div className={FormCSS.infocard}>
+                        <div className={FormCSS.infoCard}>
                             <h5>Email Address:</h5>
                             <p className="text-black-50">support@LabArtisan</p>
                         </div>
-                        <div className={FormCSS.infocard}>
+                        <div className={FormCSS.infoCard}>
                             <h5>Website Address:</h5>
                             <p className="text-black-50">http://LabArtisan</p>
                         </div>

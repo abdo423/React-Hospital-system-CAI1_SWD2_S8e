@@ -1,8 +1,8 @@
 import React from 'react';
-
+import styles from './DepartmentsSection.module.css';
 
 const DepartmentCard = ({ title, imageUrl }) => (
-  <div className="col-md-3 col-lg-2 border-0 card">
+  <div className={`col-md-3 col-lg-2 border-0 ${styles.DepartmentCard} `}>
     <h4 className="pt-3 fs-5 fw-bold">{title}</h4>
     <div className="icon_holder">
       <img className="pt-3 pb-4" src={imageUrl} alt={title} />
@@ -14,8 +14,8 @@ const DepartmentCard = ({ title, imageUrl }) => (
 );
 
 
-const DepartmentsCenter = ({ title, departments }) => (
-  <section className="Departments_center text-center pt-5 pb-5">
+const DepartmentsSection = ({ title, departments }) => (
+  <section className={`${styles.DepartmentsSection} text-center pt-5 pb-5`}>
     <div className="container">
       <div className="title">
         <h2 className="fw-light">We Are The</h2>
@@ -34,4 +34,4 @@ const DepartmentsCenter = ({ title, departments }) => (
   </section>
 );
 
-export default DepartmentsCenter;
+export default DepartmentsSection;

@@ -1,7 +1,6 @@
 import React from 'react';
-import Departments from '../Departments/DCompopemts/Departments';
-
-
+import DepartmentsSection from '../Departments/DepartmentsSection/DepartmentsSection';
+import PagesHeroSection from '../../Shared/PagesHeroSection/PagesHeroSection';
 const departmentsData = [
   { title: 'Plastic Surgery', imageUrl: '/images/01.png' },
   { title: 'Rhinology', imageUrl: '/images/01.png' },
@@ -16,10 +15,15 @@ const departmentsData = [
 ];
 
 const App = () => (
-  <Departments
+  
+  <>
+  <PagesHeroSection title="Department The Mutki" subTitle="Departments" />
+  <DepartmentsSection
     title="Best Our Departments Center"
     departments={departmentsData}
   />
+  </>
+  
 );
 
 export default App;

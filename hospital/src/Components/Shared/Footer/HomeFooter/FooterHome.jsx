@@ -1,7 +1,7 @@
 import React from 'react';
-import FooterHCss from './FooterH.module.css';
+import FooterHCss from './FooterHome.module.css';
 
-const FooterH = () => {
+const FooterHome = () => {
     return (
         <footer className={FooterHCss.footer}>
             <div className="container pt-5 pb-5 text-center text-md-start text-black-50">
@@ -62,7 +62,7 @@ const FooterH = () => {
                     <div className="col-md-6 col-xl-3 pt-5">
                         <div className="Opening_Hours">
                             <h5 className="text-dark fw-bold">Opening Hours</h5>
-                            <div id="content" className="d-flex">
+                            <div  className="d-flex justify-content-center justify-content-md-start">
                                 <ul className="list-unstyled lh-lg">
                                     <li>Saturday</li>
                                     <li>Sunday</li>
@@ -94,4 +94,4 @@ const FooterH = () => {
     );
 };
 
-export default FooterH;
+export default FooterHome;

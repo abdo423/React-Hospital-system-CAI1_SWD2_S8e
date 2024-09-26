@@ -5,6 +5,21 @@
     color:#040a1f;
 }
 
+.subscribe_btn{
+    background-color: #346def;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
 .footer {
     background-image: url(/public/images/bg1.png);
+    background-color: #f5f9ff;
+    ;
 }
