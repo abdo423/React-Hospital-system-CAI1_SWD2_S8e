@@ -1,0 +1,46 @@
+:root {
+    --color-primary: #0071ef;
+  }
+  
+  /* departments section style */
+  .theContentOfSection .departmentsPhotos .photo {
+    background-color: #f5f9ff;
+  }
+  
+  .theContentOfSection .departmentSummry .summry {
+    background-color: white;
+  }
+  
+  /* DepartmentsSection.module.css */
+  .primaryButton {
+    background-color: #0071e1;
+    color: white;
+  }
+  
+  .primaryButton:hover {
+    background-color: white;
+    color: var(--color-primary);
+  }
+  
+  .footer {
+    bottom: -25%;
+    width: 100%;
+    background-color: var(--color-primary);
+    color: white;
+  }
+  
+  /* end of departments section style */
+  /* responsive */
+  /* for medium screens*/
+  @media (max-width: 768px) {
+    .footer {
+      bottom: -15%;
+    }
+  }
+  /*for x-small screens */
+  @media (max-width: 576px) {
+    .footer {
+      bottom: -51%;
+    }
+  }
+  
