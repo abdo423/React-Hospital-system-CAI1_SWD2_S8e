@@ -1,0 +1,42 @@
+/* start variables */
+:root {
+  --primary-color: #0071ef;
+}
+/* end variables */
+/* start global rules */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Roboto", sans-serif;
+}
+ul {
+  list-style: none;
+}
+
+/* start our doctors */
+.ourDoctors {
+  margin-top: 100px ;
+  margin-bottom: 100px;
+
+}
+.ourDoctors .container .doctors p {
+  color: #777;
+}
+.ourDoctors .container .doctors img {
+margin-bottom: 10px
+}
+/* end our doctors */
+
+
+
+
+
+/* end info */
