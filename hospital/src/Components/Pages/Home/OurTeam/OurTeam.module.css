@@ -1,0 +1,14 @@
+
+  
+  .badgeCustom::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    position: absolute;
+    bottom: 83px;
+    left: 20%;
+    border-bottom: 10px solid white;
+   
+  }

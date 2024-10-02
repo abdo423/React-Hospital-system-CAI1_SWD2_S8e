@@ -1,0 +1,11 @@
+.blogcontent{
+    color: #0071ef;
+    color:var(--primary-color);
+   
+  }
+  .blog-content p:nth-child(2){
+      font-size: 1rem;
+      line-height: 1.5;
+      color: var(--secondary-color);
+     
+  }
