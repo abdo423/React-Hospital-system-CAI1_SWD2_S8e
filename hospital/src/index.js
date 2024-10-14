@@ -3,7 +3,8 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-
+import { store } from "./app/store";
+import { Provider } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./Components/Pages/Home/Home";
 import AboutUs from "./Components/Pages/AboutUs/AboutUs";
@@ -49,8 +50,7 @@ const router = createBrowserRouter([
       {
         path: "/blog/:id",
         element: <BlogDetails />, // Pass blogPosts as props
-      }
-  
+      },
     ],
     // errorElement: <ErrorPage />,
   },
@@ -58,7 +58,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
 
