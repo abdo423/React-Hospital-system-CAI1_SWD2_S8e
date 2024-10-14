@@ -6,6 +6,8 @@ import LogosSection from '../../Shared/LogosSection/LogosSection';
 import AboutUsSection from '../../Shared/AboutUsSection/AboutUsSection';
 import HeroSection from './HeroSection/HeroSection';
 import DepartmentsSection from './DepartmentsSection/DepartmentsSection';
+import AppointmentServiceSection from './AppointmentServiceSection/AppointmentServiceSection';
+import OurTeamSection from './OurTeamSection/OurTeamSection';
 
 const Home = () => {
     return (
@@ -14,6 +16,8 @@ const Home = () => {
 
         <AboutUsSection />
         <DepartmentsSection/>
+        <OurTeamSection/>
+        <AppointmentServiceSection/>
         <FeedsSection/>
         <LogosSection/>
         <JoinNewsPaperSection/>

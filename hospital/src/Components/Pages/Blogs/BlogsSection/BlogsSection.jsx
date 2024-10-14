@@ -9,7 +9,7 @@ const blogs = [
     title: "Uompe Qrear High Ecent Nche Without Some Prinlc Uomp",
     description:
       "Rapidiously qntegrate distrbuted supply chains throuih marke position bestn practices chain marke positonn bestin practicer iaretcive fashion and sound quorces for.",
-    link: "./blog.details.html",
+
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const blogs = [
     title: "Uompe Qrear High Ecent Nche Without Some Prinlc Uomp",
     description:
       "Rapidiously qntegrate distrbuted supply chains throuih marke position bestn practices chain marke positonn bestin practicer iaretcive fashion and sound quorces for.",
-    link: "./blog.details.html",
+
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ const blogs = [
     title: "Uompe Qrear High Ecent Nche Without Some Prinlc Uomp",
     description:
       "Rapidiously qntegrate distrbuted supply chains throuih marke position bestn practices chain marke positonn bestin practicer iaretcive fashion and sound quorces for.",
-    link: "./blog.details.html",
+   
   },
 ];
 

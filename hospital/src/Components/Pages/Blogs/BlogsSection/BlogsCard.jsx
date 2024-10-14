@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './BlogCard.module.css';
-
+import { Link } from 'react-router-dom';
 const BlogsCard = ({ blog }) => {
     return (
         <div key={blog.id} className="col-lg-7 col-md-10 mb-4">
@@ -15,9 +15,9 @@ const BlogsCard = ({ blog }) => {
                     <h4 className="card-title">{blog.title}</h4>
                     <p className="card-text">{blog.description}</p>
                     <hr />
-                    <a href={blog.link} className="btn btn-primary">
+                    <Link to={`/blog/${blog.id}`} className="btn btn-primary">
                         Read More &gt;&gt;
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>

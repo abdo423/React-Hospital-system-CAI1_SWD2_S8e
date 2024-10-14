@@ -1,54 +1,67 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { Container, Row, Col, Card } from 'react-bootstrap';
-import axios from 'axios';
+import React from "react";
+import styles from "./BlogDetails.module.css"; // Import CSS module
 
-const BlogDetails = () => {
-    const { id } = useParams(); // Get the id from the URL
-    const [blog, setBlog] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-
-    useEffect(() => {
-        // Fetch the blog data by its id from JSONPlaceholder
-        const fetchBlogDetails = async () => {
-            try {
-                const response = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
-                if (response.data) {
-                    setBlog(response.data); // Set the blog data
-                } else {
-                    setLoading(false);
-                    setError('Blog not found!');
-                }
-                setLoading(false);
-            } catch (error) {
-                setError('Error fetching blog data!');
-                setLoading(false);
-            }
-        };
-
-        fetchBlogDetails();
-    }, [id]); // Fetch the blog when the component mounts and when id changes
-
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>{error}</div>;
-    if (!blog) return <div>Blog not found</div>;
-
-    return (
-        <Container>
-            <Row className="justify-content-md-center">
-                <Col md="8">
-                    <Card>
-                        <Card.Body>
-                            <Card.Title>{blog.title}</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted">Blog ID: {blog.id}</Card.Subtitle>
-                            <Card.Text>{blog.body}</Card.Text> {/* JSONPlaceholder uses 'body' for content */}
-                        </Card.Body>
-                    </Card>
-                </Col>
-            </Row>
-        </Container>
-    );
-};
+function BlogDetails() {
+  return (
+    <>
+      <section id="blogs-section" className={styles.blogSection}>
+        <div className={`container mx-auto row gap-3 align-items-center justify-content-center ${styles.blogs}`}>
+          <div className="blog-card col-lg-7">
+            <div className={`card ${styles.card}`}>
+              <div className={styles.imageContainer}>
+                <img
+                  src="/images/03.jpg"
+                  alt="Blog image"
+                  className="img-fluid card-img-top"
+                />
+              </div>
+              <div className={`p-2 ${styles.blogContent}`}>
+                <p className="text-primary">By Admin March 24, 2021</p>
+                <h4>
+                  <strong>
+                    A wonderful serenity has taken possession of my entire soul
+                    like these sweet mornings of spring which I enjoy.
+                  </strong>
+                </h4>
+                <p className="text-secondary">
+                  A wonderful serenity has taken possession of my entire soul
+                  like these sweet mornings of spring which I enjoy with my
+                  whole heart. I am alone and feel the charm of existence in
+                  this spot which was created for the bliss of souls like mine.
+                  I am so happy, my dear friend, so absorbed in the exquisite
+                  sense of tranquil existence, that I neglect my talents. I
+                  should be incapable of drawing a single stroke. A wonderful
+                  serenity has taken possession of my entire soul like these
+                  sweet mornings of spring which I enjoy with my whole heart. I
+                  am alone and feel the charm of existence in this spot which
+                  was created for the bliss of souls like mine. I am so happy,
+                  my dear friend, so absorbed in the exquisite sense of tranquil
+                  existence that I neglect my talents. I should be incapable of
+                  drawing a single stroke.
+                </p>
+                <p className="text-secondary">
+                  A wonderful serenity has taken possession of my entire soul
+                  like these sweet mornings of spring which I enjoy with my
+                  whole heart. I am alone and feel the charm of existence in
+                  this spot which was created for the bliss of souls like mine.
+                  I am so happy, my dear friend, so absorbed in the exquisite
+                  sense of tranquil existence, that I neglect my talents. I
+                  should be incapable of drawing a single stroke. A wonderful
+                  serenity has taken possession of my entire soul like these
+                  sweet mornings of spring which I enjoy with my whole heart. I
+                  am alone and feel the charm of existence in this spot which
+                  was created for the bliss of souls like mine. I am so happy,
+                  my dear friend, so absorbed in the exquisite sense of tranquil
+                  existence that I neglect my talents. I should be incapable of
+                  drawing a single stroke.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
 
 export default BlogDetails;
