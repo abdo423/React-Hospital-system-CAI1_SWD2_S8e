@@ -1,0 +1,35 @@
+:root {
+    --primary-color: #0071ef;
+    --section-padding: 20px;
+}
+
+/* Start contact section */
+
+.ContactUs {
+    margin: 50px 0; /* This adds the top and bottom margins */
+    padding: var(--section-padding);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Box shadow on all sides */
+    background-color: #fff; /* Make sure the background is white */
+    border-radius: 8px;
+    max-width: 1200px; /* This restricts the width so it's not full-width */
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
+}
+
+.infoCard {
+    position: relative;
+}
+
+.infoCard::after {
+    content: "";
+    width: 5px;
+    height: 100%;
+    background-color: var(--primary-color);
+    position: absolute;
+    left: -10px;
+    top: 0;
+}
+
+iframe {
+    width: 100%;
+}

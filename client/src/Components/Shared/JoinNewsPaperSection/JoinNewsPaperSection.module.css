@@ -1,0 +1,19 @@
+.JoinUs {
+    background-color: #0071ef;
+    padding: 40px 0;
+}
+
+.JoinUs h2 {
+    color: #fff;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.JoinUs button {
+    background-color: #0071ef;
+    color: #fff;
+    font-weight: 700;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}

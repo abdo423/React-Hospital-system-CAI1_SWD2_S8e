@@ -1,0 +1,8 @@
+.blogContent p:first-child {
+    color: var(--primary-color);
+  }
+  .blogContent p:nth-child(3) {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--secondary-color);
+  }

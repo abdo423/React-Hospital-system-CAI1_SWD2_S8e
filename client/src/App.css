@@ -1,0 +1,19 @@
+:root {
+  --primary-color: #0071ef;
+  --secondary-color: #98a1b1;
+  --section-padding: 20px;
+}
+* {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Roboto", sans-serif;
+}
+
