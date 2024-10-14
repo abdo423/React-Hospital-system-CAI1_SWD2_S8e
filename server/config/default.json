@@ -1,0 +1,5 @@
+{
+    "DB_CONNECTION":"mongodb+srv://abdelrhmankhaled537:XBsavJzAguc3Qkwp@hospitals.ionoi.mongodb.net/Hostpital?retryWrites=true&w=majority&appName=Hospitals",
+    "PORT": 5000,
+    "jwtPrivateKey":"Badfdwerfsdgfgdfg12434st5##%$@^&^@#"
+}
