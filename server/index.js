@@ -8,6 +8,7 @@ const config = require("config");
 const auth = require("./middlewares/auth");
 const cookieParser = require("cookie-parser");
 const jwt = require("jsonwebtoken");
+const Contact = require("../models/Contact");
 ///////////////////////////built in middlewares///////////////////////////
 //built-in middleware function:
 app.use(cookieParser());  // Add this middleware
@@ -88,7 +89,50 @@ app.get("/Doctors",auth, (req, res) => {
   });
 ////////////////////////////////////////////////////////////
 ///////////////////////////Routes///////////////////////////
+app.post('/api/contact/', async (req, res) => {
+  try {
+    const { name, message } = req.body;
+    if (!name || !message) {
+      return res.status(404).json({ message: 'not found' });
+    }
+    const newContact = new Contact({ name, message });
+    await newContact.save();
+    res.status(200).json({ message: 'thank you for contacting us' });
+  } catch (error) {
+    res.status(500).json({ message: 'internal error' });
+  }
+});
+
+// Get all contact messages
+app.get('/api/contact/', async (req, res) => {
+  try {
+    const contacts = await Contact.find().exec();
+    res.status(200).json(contacts);
+  } catch (error) {
+    res.status(500).json({ message: 'internal error' });
+  }
+});
+
+// Get a contact message by ID
+app.get('/api/contact/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const contact = await Contact.findById(id).exec();
+    if (!contact) {
+      return res.status(404).json({ message: 'not found' });
+    }
+    res.status(200).json(contact);
+  } catch (error) {
+    res.status(500).json({ message: 'internal error' });
+  }
+});
+
+////////////////////////////////
+///////////////////////////////
 app.use("/admin", require("./routes/Admin"));
 app.listen(5000, () => {
   console.log("Server is running on port 5000");
 });
+
+
+
