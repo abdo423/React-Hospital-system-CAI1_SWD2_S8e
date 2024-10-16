@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Doctor</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .edit-doctor-form {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group img {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="edit-doctor-form">
+            <h1 class="text-center mb-4">Edit Doctor</h1>
+            <form id="editDoctorForm" enctype="multipart/form-data">
+                <div class="form-group mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" value="<%= doctor.name %>" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="text" class="form-control" id="phone" name="phone" value="<%= doctor.phone %>" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" value="<%= doctor.email %>" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="department" class="form-label">Department</label>
+                    <select class="form-select" id="department" name="department" required>
+                        <option value="<%= doctor.department._id %>"><%= doctor.department.name %></option>
+                        <!-- Add other departments here -->
+                    </select>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="DoctorImage" class="form-label">Doctor Image</label>
+                    <input type="file" class="form-control" id="DoctorImage" name="DoctorImage">
+                    <img src="/<%= doctor.DoctorImage %>" alt="Doctor Image" width="100" class="mt-2">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="date" class="form-label">Date</label>
+                    <input type="date" class="form-control" id="date" name="date" value="<%= new Date(doctor.date).toISOString().split('T')[0] %>" disabled>
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById("editDoctorForm").addEventListener("submit", async function (event) {
+            event.preventDefault();  // Prevent the default form submission
+    
+            const form = document.getElementById("editDoctorForm");
+            const formData = new FormData(form);
+            const doctorId = "<%= doctor._id %>";
+    
+            try {
+                const response = await fetch(`/api/doctors/${doctorId}`, {
+                    method: 'PUT',
+                    body: formData
+                });
+    
+                if (response.ok) {
+                    alert("Doctor updated successfully");
+                    window.location.href = "/api/doctors";  // Redirect to doctors list
+                } else {
+                    const textResponse = await response.text(); // Get the response as text
+                    console.error("Error response:", textResponse); // Log the text response
+                    let errorData;
+    
+                    try {
+                        // Try to parse it as JSON if it is valid JSON
+                        errorData = JSON.parse(textResponse);
+                    } catch (jsonError) {
+                        errorData = ["Failed to parse error response"];
+                    }
+                    alert("Failed to update doctor: " + errorData.join(", "));
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("An error occurred while updating the doctor");
+            }
+        });
+    </script>
+    
+</body>
+</html>
