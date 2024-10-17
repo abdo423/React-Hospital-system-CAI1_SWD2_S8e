@@ -1,7 +1,6 @@
+// index.js
 const express = require("express");
 const path = require("path");
-const app = express();
-app.use(express.json());
 const mongoose = require("mongoose");
 const cors = require("cors");
 const config = require("config");
@@ -9,14 +8,19 @@ const auth = require("./middlewares/auth");
 const cookieParser = require("cookie-parser");
 const jwt = require("jsonwebtoken");
 const Contact = require("../models/Contact");
-///////////////////////////built in middlewares///////////////////////////
-//built-in middleware function:
-app.use(cookieParser());  // Add this middleware
+const contactRouter = require('./routes/contact'); // استيراد مسار الاتصال
+
+const app = express();
+
+// Middleware
+app.use(express.json());
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use("/uploads", express.static("uploads"));
 app.use(cors());
-///////////////////////////Database connection///////////////////////////
+
+// Database connection
 const db_connect = config.get("DB_CONNECTION");
 mongoose
   .connect(db_connect)
@@ -25,114 +29,59 @@ mongoose
   })
   .catch(() => {
     console.log("Connection failed");
-  }); // Add your MongoDB connection string
-//////////////////////////////////////////////////////////////////////
-// Serve AdminLTE files
-app.use(
-  "/adminlte",
-  express.static(path.join(__dirname, "node_modules", "admin-lte"))
-);
+  });
 
-// Serve Font Awesome from node_modules
-app.use(
-  "/fontawesome",
-  express.static(
-    path.join(__dirname, "node_modules", "@fortawesome", "fontawesome-free")
-  )
-);
+// Serve AdminLTE files
+app.use("/adminlte", express.static(path.join(__dirname, "node_modules", "admin-lte")));
+app.use("/fontawesome", express.static(path.join(__dirname, "node_modules", "@fortawesome", "fontawesome-free")));
 
 // Set the view engine to EJS
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
-console.log("Views directory:", path.join(__dirname, "views"));
-console.log("Login file path:", path.join(__dirname, "views", "login.ejs"));
-// route ejs file
+
+// Route ejs file
 app.get("/login", (req, res) => {
   res.render("Login.ejs");
 });
 
-
-app.get("/Dashboard",auth, (req, res) => {
-  // Handle token logic here
-  const token = req.cookies['x-auth-token']; // Get the token from cookies
-  let username = 'Guest'; // Default value if no token is found
+// Routes for Dashboard and Doctors
+app.get("/Dashboard", auth, (req, res) => {
+  const token = req.cookies['x-auth-token'];
+  let username = 'Guest';
 
   if (token) {
-      try {
-          const decoded = jwt.verify(token, config.get('jwtPrivateKey'));
-          username = decoded.username; // Get the username from the JWT
-      } catch (ex) {
-          console.log('Invalid token');
-      }
+    try {
+      const decoded = jwt.verify(token, config.get('jwtPrivateKey'));
+      username = decoded.username;
+    } catch (ex) {
+      console.log('Invalid token');
+    }
   }
 
   res.render('Dashboard.ejs', { username });
-
 });
-app.get("/Doctors",auth, (req, res) => {
-    // Handle token logic here
-      // Handle token logic here
-  const token = req.cookies['x-auth-token']; // Get the token from cookies
-  let username = 'Guest'; // Default value if no token is found
+
+app.get("/Doctors", auth, (req, res) => {
+  const token = req.cookies['x-auth-token'];
+  let username = 'Guest';
 
   if (token) {
-      try {
-          const decoded = jwt.verify(token, config.get('jwtPrivateKey'));
-          username = decoded.username; // Get the username from the JWT
-          console.log(username);
-      } catch (ex) {
-        console.log(ex);
-          console.log('Invalid token');
-      }
-  }
-    res.render("Doctors.ejs" ,{ username });
-  });
-////////////////////////////////////////////////////////////
-///////////////////////////Routes///////////////////////////
-app.post('/api/contact/', async (req, res) => {
-  try {
-    const { name, message } = req.body;
-    if (!name || !message) {
-      return res.status(404).json({ message: 'not found' });
+    try {
+      const decoded = jwt.verify(token, config.get('jwtPrivateKey'));
+      username = decoded.username;
+    } catch (ex) {
+      console.log('Invalid token');
     }
-    const newContact = new Contact({ name, message });
-    await newContact.save();
-    res.status(200).json({ message: 'thank you for contacting us' });
-  } catch (error) {
-    res.status(500).json({ message: 'internal error' });
   }
+  res.render("Doctors.ejs", { username });
 });
 
-// Get all contact messages
-app.get('/api/contact/', async (req, res) => {
-  try {
-    const contacts = await Contact.find().exec();
-    res.status(200).json(contacts);
-  } catch (error) {
-    res.status(500).json({ message: 'internal error' });
-  }
-});
-
-// Get a contact message by ID
-app.get('/api/contact/:id', async (req, res) => {
-  try {
-    const { id } = req.params;
-    const contact = await Contact.findById(id).exec();
-    if (!contact) {
-      return res.status(404).json({ message: 'not found' });
-    }
-    res.status(200).json(contact);
-  } catch (error) {
-    res.status(500).json({ message: 'internal error' });
-  }
-});
-
-////////////////////////////////
-///////////////////////////////
+// Routes for contact
+app.use('/api/contact', contactRouter); 
+// Admin routes
 app.use("/admin", require("./routes/Admin"));
-app.listen(5000, () => {
-  console.log("Server is running on port 5000");
+
+const PORT = process.env.PORT || 5000; 
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
-
-
-
