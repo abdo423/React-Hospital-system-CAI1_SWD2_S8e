@@ -1,16 +1,12 @@
 const express = require("express");
-const fs = require("fs");
+const fs = require("fs").promises;
 const path = require("path");
 const router = express.Router();
 const upload = require("../../middlewares/imageUploader");
 const { Doctor, validateDoctor } = require("../../models/Doctors");
 const { Department } = require("../../models/Departments");
 
-// Function to check if an image exists in the uploads directory
-const imageExists = (imageName) => {
-  const imagePath = path.join(__dirname, "../../uploads", imageName);
-  return fs.existsSync(imagePath);
-};
+
 
 // GET all doctors
 router.get("/", async (req, res) => {
@@ -145,11 +141,6 @@ router.delete("/:id", async (req, res) => {
     const doctor = await Doctor.findByIdAndDelete(req.params.id);
     if (!doctor) {
       return res.status(404).send("The doctor with the given ID was not found.");
-    }
-
-    // Delete the doctor image
-    if (doctor.DoctorImage && imageExists(path.basename(doctor.DoctorImage))) {
-      fs.unlinkSync(path.join(__dirname, "../../uploads", path.basename(doctor.DoctorImage)));
     }
 
     // Remove the doctor from the department

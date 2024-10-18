@@ -358,13 +358,13 @@
             <!--begin::Row-->
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">Doctors</h3>
+                <h3 class="mb-0">Departments</h3>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
                   <li class="breadcrumb-item"><a href="#">Home</a></li>
                   <li class="breadcrumb-item active" aria-current="page">
-                    Doctors
+                    Departments
                   </li>
                 </ol>
               </div>
@@ -375,61 +375,108 @@
         </div>
         <!--end::App Content Header-->
         <!--begin::App Content-->
-        <div class="container-fluid">
-          <div class="row mb-3 align-items-center">
-            <div class="col">
-              <h1 class="m-0">Doctors</h1>
-            </div>
-            <div class="col-auto">
-              <a href="/api/doctors/new" class="btn btn-primary">
-                <i class="bi bi-plus-circle me-2"></i>Add Doctor
-              </a>
-            </div>
-          </div>
-          <% if (doctors.length > 0) { %>
-          <table class="table table-bordered table-striped">
+        <div class="container mt-5">
+          <h2>Departments</h2>
+          <table class="table table-bordered">
             <thead>
               <tr>
-                <th>Doctor ID</th>
-                <th>First Name</th>
-                <th>Email</th>
-                <th>Specialty</th>
+                <th>Department ID</th>
+                <th>Department Name</th>
+                <th>Doctors</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody>
-              <% doctors.forEach((doctor) => { %>
-              <tr id="<%= doctor._id %>">
-                <td><%= doctor._id %></td>
-                <td><%= doctor.name %></td>
-                <td><%= doctor.email %></td>
-                <td><%= doctor.department.name %></td>
+              <% departments.forEach(department => { %>
+              <tr id="<%= department.id %>">
+                <td><%= department.id %></td>
+                <td><%= department.name %></td>
+                <td>
+                  <select class="form-control">
+                    <% department.doctors.forEach(doctor => { %>
+                    <option><%= doctor.name %></option>
+                    <% }) %>
+                  </select>
+                </td>
                 <td>
                   <a
-                    href="/api/doctors/<%= doctor._id %>"
-                    class="btn btn-primary"
-                    >View</a
-                  >
-                  <a
-                    href="/api/doctors/<%= doctor._id %>"
-                    class="btn btn-warning"
+                    href="/api/departments/<%= department.id %>"
+                    class="btn btn-primary btn-sm"
                     >Edit</a
                   >
                   <button
-                    class="btn btn-danger"
-                    onclick="deleteDoctor('<%= doctor._id %>')"
+                    class="btn btn-danger btn-sm"
+                    onclick="deleteDepartment('<%= department.id %>')"
                   >
                     Delete
                   </button>
                 </td>
               </tr>
-
-              <% }); %>
+              <% }) %>
             </tbody>
           </table>
-          <% } else { %>
-          <p>No doctors found</p>
-          <% } %>
+          <button
+            class="btn btn-success"
+            data-bs-toggle="modal"
+            data-bs-target="#addDepartmentModal"
+          >
+            Add Department
+          </button>
+
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="addDepartmentModal"
+            tabindex="-1"
+            aria-labelledby="addDepartmentModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="addDepartmentModalLabel">
+                    Add Department
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <form id="addDepartmentForm">
+                    <div class="form-group">
+                      <label for="departmentName">Department Name:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="departmentName"
+                        name="name"
+                        required
+                      />
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    onclick="saveDepartment()"
+                  >
+                    Save
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- /.container-fluid -->
@@ -443,7 +490,7 @@
         <!--end::To the end-->
         <!--begin::Copyright-->
         <strong>
-          Copyright &copy; 2014-2024&nbsp;
+          Copyright © 2014-2024 
           <a href="https://adminlte.io" class="text-decoration-none"
             >AdminLTE.io</a
           >.
@@ -479,51 +526,82 @@
     <script src="/adminlte/dist/js/adminlte.js"></script>
     <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
     <script>
-      const SELECTOR_SIDEBAR_WRAPPER = ".sidebar-wrapper";
-      const Default = {
-        scrollbarTheme: "os-theme-light",
-        scrollbarAutoHide: "leave",
-        scrollbarClickScroll: true,
-      };
-      window.addEventListener("DOMContentLoaded", () => {
-        const currentLocation = window.location.pathname.toLowerCase(); // Normalize case
+         const SELECTOR_SIDEBAR_WRAPPER = ".sidebar-wrapper";
+         const Default = {
+           scrollbarTheme: "os-theme-light",
+           scrollbarAutoHide: "leave",
+           scrollbarClickScroll: true,
+         };
+         window.addEventListener("DOMContentLoaded", () => {
+           const currentLocation = window.location.pathname.toLowerCase(); // Normalize case
 
-        // Get all nav links
-        const navLinks = document.querySelectorAll(
-          ".sidebar-wrapper .nav-link"
-        );
+           // Get all nav links
+           const navLinks = document.querySelectorAll(
+             ".sidebar-wrapper .nav-link"
+           );
 
-        navLinks.forEach((link) => {
-          // Normalize case and check if the paths match
-          if (link.getAttribute("href").toLowerCase() === currentLocation) {
-            link.classList.add("active");
-          } else {
-            link.classList.remove("active");
-          }
-        });
-      });
-      //delete Doctor
-      function deleteDoctor(doctorId) {
-        if (confirm("Are you sure you want to delete this doctor?")) {
-          fetch(`/api/doctors/${doctorId}`, {
-            method: "DELETE",
-          })
-            .then((response) => {
-              if (response.ok) {
-                // Remove the doctor's row from the table in the DOM
-                const doctorRow = document.getElementById(doctorId);
-                if (doctorRow) {
-                  doctorRow.remove();
-                }
-              } else {
-                alert("Failed to delete the doctor");
-              }
-            })
-            .catch((error) => {
-              console.error("Error:", error);
-            });
-        }
-      }
+           navLinks.forEach((link) => {
+             // Normalize case and check if the paths match
+             if (link.getAttribute("href").toLowerCase() === currentLocation) {
+               link.classList.add("active");
+             } else {
+               link.classList.remove("active");
+             }
+           });
+         });
+         function deleteDepartment(departmentId) {
+           if (confirm("Are you sure you want to delete this department?")) {
+             fetch(`/api/departments/${departmentId}`, {
+               method: "DELETE",
+             })
+               .then((response) => {
+                 if (response.ok) {
+                   // Remove the doctor's row from the table in the DOM
+                   const departmentRow = document.getElementById(departmentId);
+                   if (departmentRow) {
+                     departmentRow.remove();
+                   }
+                 } else {
+                   alert("Failed to delete the department");
+                 }
+               })
+               .catch((error) => {
+                 console.error("Error:", error);
+               });
+           }
+         }
+        function saveDepartment() {
+           // Get the value from the form
+           const departmentName = document.getElementById("departmentName").value;
+
+           // Create a new department object
+           const newDepartment = {
+             name: departmentName,
+           };
+
+           // Send a POST request to the API to create the new department
+           fetch("/api/departments", {
+             method: "POST",
+             headers: {
+               "Content-Type": "application/json",
+             },
+             body: JSON.stringify(newDepartment),
+           })
+               .then(async (response) => {
+                 if (response.ok) {
+                   // Update the department table
+                   // ... (Code to update the department table)
+                   alert("Department created successfully");
+                   window.location.href = "/api/departments"; // Redirect to departments list
+               } else {
+                   const errorText = await response.text();
+                   alert(`Failed to add department: ${errorText}`);
+               }
+             })
+             .catch((error) => {
+               console.error("Error:", error);
+             });
+         }
     </script>
     <!--end::OverlayScrollbars Configure-->
     <!--end::Script-->

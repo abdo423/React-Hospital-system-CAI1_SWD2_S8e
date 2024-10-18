@@ -11,7 +11,7 @@ function auth(req, res, next) {
     } catch (ex) {
         console.log(ex);
         if (ex.name === 'TokenExpiredError') {
-            return res.redirect('/login');
+            return res.redirect('/');
         }
         res.status(400).send("Invalid token.");
     }

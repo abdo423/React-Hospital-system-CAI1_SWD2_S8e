@@ -1,19 +1,19 @@
 const express = require("express");
 const path = require("path");
-const Joi = require("joi"); 
+const Joi = require("joi");
 const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const config = require("config");
 const auth = require("./middlewares/auth");
-const cookieParser = require("cookie-parser");  
-Joi.objectId = require('joi-objectid')(Joi);
+const cookieParser = require("cookie-parser");
+Joi.objectId = require("joi-objectid")(Joi);
 
 const jwt = require("jsonwebtoken");
 ///////////////////////////built in middlewares///////////////////////////
 //built-in middleware function:
 app.use(express.json());
-app.use(cookieParser());  // Add this middleware
+app.use(cookieParser()); // Add this middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use("/uploads", express.static("uploads"));
@@ -53,25 +53,25 @@ app.get("/", (req, res) => {
   res.render("Login.ejs");
 });
 
-
-app.get("/Dashboard",auth, (req, res) => {
+app.get("/Dashboard", auth, (req, res) => {
   // Handle token logic here
-  const token = req.cookies['x-auth-token']; // Get the token from cookies
-  let username = 'Guest'; // Default value if no token is found
+  const token = req.cookies["x-auth-token"]; // Get the token from cookies
+  let username = "Guest"; // Default value if no token is found
 
   if (token) {
-      try {
-          const decoded = jwt.verify(token, config.get('jwtPrivateKey'));
-          username = decoded.username; // Get the username from the JWT
-      } catch (ex) {
-          console.log('Invalid token');
-      }
+    try {
+      const decoded = jwt.verify(token, config.get("jwtPrivateKey"));
+      username = decoded.username; // Get the username from the JWT
+    } catch (ex) {
+      console.log("Invalid token");
+    }
   }
 
-  res.render('Dashboard.ejs', { username });
-
+  res.render("Dashboard.ejs", { username });
 });
-
+app.use("/api/doctors/new", (req, res) => {
+  res.render("New_Doctor.ejs");
+});
 ////////////////////////////////////////////////////////////
 ///////////////////////////Routes///////////////////////////
 app.use("/admin", require("./routes/Admin"));
@@ -79,6 +79,7 @@ app.use("/departments", require("./routes/Frontend/Departments"));
 app.use("/doctor", require("./routes/Frontend/Doctors"));
 //////ejs routes//////////////////////////////////////
 app.use("/api/doctors", require("./routes/Doctors"));
+app.use("/api/departments", require("./routes/Departments"));
 app.listen(5000, () => {
   console.log("Server is running on port 5000");
 });
