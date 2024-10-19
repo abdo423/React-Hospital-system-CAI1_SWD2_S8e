@@ -250,7 +250,7 @@
                     alt="User Image"
                   />
                   <p>
-                    <%= username %>- Web Developer
+                    <%= username %> - Web Developer
                     <small>Member since Nov. 2023</small>
                   </p>
                 </li>
@@ -336,12 +336,6 @@
                   <p>Departments</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="/api/Posts" class="nav-link">
-                  <i class="nav-icon bi bi-palette"></i>
-                  <p>Posts</p>
-                </a>
-              </li>
               <li class="nav-header">MULTI LEVEL EXAMPLE</li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
@@ -364,13 +358,13 @@
             <!--begin::Row-->
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">Departments</h3>
+                <h3 class="mb-0">Dashboard</h3>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
                   <li class="breadcrumb-item"><a href="#">Home</a></li>
                   <li class="breadcrumb-item active" aria-current="page">
-                    Departments
+                    Doctors
                   </li>
                 </ol>
               </div>
@@ -381,111 +375,282 @@
         </div>
         <!--end::App Content Header-->
         <!--begin::App Content-->
-        <div class="container mt-5">
-          <h2>Departments</h2>
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>Department ID</th>
-                <th>Department Name</th>
-                <th>Doctors</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% departments.forEach(department => { %>
-              <tr id="<%= department.id %>">
-                <td><%= department.id %></td>
-                <td><%= department.name %></td>
-                <td>
-                  <select class="form-control">
-                    <% department.doctors.forEach(doctor => { %>
-                    <option><%= doctor.name %></option>
-                    <% }) %>
-                  </select>
-                </td>
-                <td>
-                  <a
-                    href="/api/departments/<%= department.id %>"
-                    class="btn btn-primary btn-sm"
-                    >Edit</a
-                  >
-                  <button
-                    class="btn btn-danger btn-sm"
-                    onclick="deleteDepartment('<%= department.id %>')"
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-              <% }) %>
-            </tbody>
-          </table>
-          <button
-            class="btn btn-success"
-            data-bs-toggle="modal"
-            data-bs-target="#addDepartmentModal"
-          >
-            Add Department
-          </button>
-
-          <!-- Modal -->
-          <div
-            class="modal fade"
-            id="addDepartmentModal"
-            tabindex="-1"
-            aria-labelledby="addDepartmentModalLabel"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="addDepartmentModalLabel">
-                    Add Department
-                  </h5>
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div class="modal-body">
-                  <form id="addDepartmentForm">
-                    <div class="form-group">
-                      <label for="departmentName">Department Name:</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="departmentName"
-                        name="name"
-                        required
-                      />
+        <div class="container mt-4">
+          <div class="row">
+            <div class="col-12">
+              <h2 class="mb-4">Posts</h2>
+              <button
+                class="btn btn-primary mb-3"
+                data-bs-toggle="modal"
+                data-bs-target="#addPostModal"
+              >
+                Add New Post
+              </button>
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Title</th>
+                      <th>Content</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% posts.forEach(function(post) { %>
+                    <tr id="<%= post.id %>">
+                      <td><%= post.id %></td>
+                      <td><%= post.title %></td>
+                      <td><%= post.content %></td>
+                      <td>
+                        <button
+                          class="btn btn-warning btn-sm"
+                          data-bs-toggle="modal"
+                          data-bs-target="#editPostModal<%= post.id %>"
+                        >
+                          Edit
+                        </button>
+                        <button
+                          class="btn btn-danger btn-sm"
+                          data-bs-toggle="modal"
+                          data-bs-target="#deletePostModal<%= post.id %>"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                    <!-- Edit Post Modal -->
+                    <div
+                      class="modal fade"
+                      id="editPostModal<%= post.id %>"
+                      tabindex="-1"
+                      aria-labelledby="editPostModalLabel<%= post.id %>"
+                      aria-hidden="true"
+                    >
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5
+                              class="modal-title"
+                              id="editPostModalLabel<%= post.id %>"
+                            >
+                              Edit Post
+                            </h5>
+                            <button
+                              type="button"
+                              class="btn-close"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                            ></button>
+                          </div>
+                          <div class="modal-body">
+                            <form
+                              id="EditPostForm"
+                              enctype="multipart/form-data"
+                            >
+                              <div class="mb-3">
+                                <label
+                                  for="title<%= post.id %>"
+                                  class="form-label"
+                                  >Title</label
+                                >
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="title<%= post.id %>"
+                                  name="title"
+                                  value="<%= post.title %>"
+                                  required
+                                />
+                              </div>
+                              <div class="mb-3">
+                                <label
+                                  for="author<%= post.id %>"
+                                  class="form-label"
+                                  >Author</label
+                                >
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="author<%= post.id %>"
+                                  name="author"
+                                  value="<%= post.author %>"
+                                  required
+                                />
+                              </div>
+                              <div class="mb-3">
+                                <label
+                                  for="content<%= post.id %>"
+                                  class="form-label"
+                                  >Content</label
+                                >
+                                <textarea
+                                  class="form-control"
+                                  id="content<%= post.id %>"
+                                  name="content"
+                                  rows="3"
+                                  required
+                                >
+<%= post.content %></textarea
+                                >
+                              </div>
+                              <div class="mb-3">
+                                <label
+                                  for="image<%= post.id %>"
+                                  class="form-label"
+                                  >Upload Image</label
+                                >
+                                <input
+                                  type="file"
+                                  class="form-control"
+                                  id="image"
+                                  name="image"
+                                  accept="image/*"
+                                  onchange="previewImage(event, '<%= post.id %>')"
+                                />
+                                <img
+                                  id="imagePreview<%= post.id %>"
+                                  src="/<%= post.image %>"
+                                  alt="Image Preview"
+                                  class="img-fluid mt-2"
+                                />
+                              </div>
+                              <button
+                                type="button"
+                                onclick="EditPost('<%= post.id %>')"
+                                class="btn btn-primary"
+                              >
+                                Save changes
+                              </button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    onclick="saveDepartment()"
-                  >
-                    Save
-                  </button>
-                </div>
+                    <!-- Delete Post Modal -->
+                    <div
+                      class="modal fade"
+                      id="deletePostModal<%= post.id %>"
+                      tabindex="-1"
+                      aria-labelledby="deletePostModalLabel<%= post.id %>"
+                      aria-hidden="true"
+                    >
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5
+                              class="modal-title"
+                              id="deletePostModalLabel<%= post.id %>"
+                            >
+                              Delete Post
+                            </h5>
+                            <button
+                              type="button"
+                              class="btn-close"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                            ></button>
+                          </div>
+                          <div class="modal-body">
+                            <p>Are you sure you want to delete this post?</p>
+                          </div>
+                          <div class="modal-footer">
+                            <form>
+                              <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                              >
+                                Cancel
+                              </button>
+                              <button
+                                onclick="deleteBlogPost('<%= post.id %>')"
+                                class="btn btn-danger"
+                              >
+                                Delete
+                              </button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <% }); %>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- /.container-fluid -->
+        <!-- Add Post Modal -->
+        <div
+          class="modal fade"
+          id="addPostModal"
+          tabindex="-1"
+          aria-labelledby="addPostModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="addPostModalLabel">Add New Post</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form id="AddPostForm">
+                  <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="title"
+                      name="title"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="author" class="form-label">Author</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="author"
+                      name="author"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="content" class="form-label">Content</label>
+                    <textarea
+                      class="form-control"
+                      id="content"
+                      name="content"
+                      rows="3"
+                      required
+                    ></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <label for="image" class="form-label">Upload Image</label>
+                    <input
+                      type="file"
+                      class="form-control"
+                      id="image"
+                      name="image"
+                      accept="image/*"
+                    />
+                  </div>
+                  <button onclick="AddBlogPost()" class="btn btn-primary">
+                    Add Post
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
         <!--end::App Content-->
       </main>
       <!--end::App Main-->
@@ -496,7 +661,7 @@
         <!--end::To the end-->
         <!--begin::Copyright-->
         <strong>
-          Copyright © 2014-2024 
+          Copyright &copy; 2014-2024&nbsp;
           <a href="https://adminlte.io" class="text-decoration-none"
             >AdminLTE.io</a
           >.
@@ -514,8 +679,6 @@
       integrity="sha256-H2VM7BKda+v2Z4+DRy69uknwxjyDRhszjXFhsL4gD3w="
       crossorigin="anonymous"
     ></script>
-    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
-
     <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -532,82 +695,137 @@
     <script src="/adminlte/dist/js/adminlte.js"></script>
     <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
     <script>
-         const SELECTOR_SIDEBAR_WRAPPER = ".sidebar-wrapper";
-         const Default = {
-           scrollbarTheme: "os-theme-light",
-           scrollbarAutoHide: "leave",
-           scrollbarClickScroll: true,
-         };
-         window.addEventListener("DOMContentLoaded", () => {
-           const currentLocation = window.location.pathname.toLowerCase(); // Normalize case
+      const SELECTOR_SIDEBAR_WRAPPER = ".sidebar-wrapper";
+      const Default = {
+        scrollbarTheme: "os-theme-light",
+        scrollbarAutoHide: "leave",
+        scrollbarClickScroll: true,
+      };
+      window.addEventListener("DOMContentLoaded", () => {
+        const currentLocation = window.location.pathname.toLowerCase(); // Normalize case
 
-           // Get all nav links
-           const navLinks = document.querySelectorAll(
-             ".sidebar-wrapper .nav-link"
-           );
+        // Get all nav links
+        const navLinks = document.querySelectorAll(
+          ".sidebar-wrapper .nav-link"
+        );
 
-           navLinks.forEach((link) => {
-             // Normalize case and check if the paths match
-             if (link.getAttribute("href").toLowerCase() === currentLocation) {
-               link.classList.add("active");
-             } else {
-               link.classList.remove("active");
-             }
-           });
-         });
-         function deleteDepartment(departmentId) {
-           if (confirm("Are you sure you want to delete this department?")) {
-             fetch(`/api/departments/${departmentId}`, {
-               method: "DELETE",
-             })
-               .then((response) => {
-                 if (response.ok) {
-                   // Remove the doctor's row from the table in the DOM
-                   const departmentRow = document.getElementById(departmentId);
-                   if (departmentRow) {
-                     departmentRow.remove();
-                   }
-                 } else {
-                   alert("Failed to delete the department");
-                 }
-               })
-               .catch((error) => {
-                 console.error("Error:", error);
-               });
-           }
-         }
-        function saveDepartment() {
-           // Get the value from the form
-           const departmentName = document.getElementById("departmentName").value;
+        navLinks.forEach((link) => {
+          // Normalize case and check if the paths match
+          if (link.getAttribute("href").toLowerCase() === currentLocation) {
+            link.classList.add("active");
+          } else {
+            link.classList.remove("active");
+          }
+        });
+      });
+      function AddBlogPost() {
+        var title = document.getElementById("title").value;
+        var author = document.getElementById("author").value;
+        var content = document.getElementById("content").value;
+        var image = document.getElementById("image").files[0];
+        var formData = new FormData();
+        formData.append("title", title);
+        formData.append("author", author);
+        formData.append("content", content);
+        formData.append("image", image);
+        fetch("/api/posts", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            if (data.status == "success") {
+              alert("Post added successfully");
+              window.location.reload();
+            } else {
+              alert("Failed to add post");
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            alert(
+              "An error occurred while updating the post: " + error.message
+            );
+          });
+      }
+      function deleteBlogPost(postId) {
+        console.log(postId);
 
-           // Create a new department object
-           const newDepartment = {
-             name: departmentName,
-           };
+        fetch(`/api/posts/${postId}`, {
+          method: "DELETE",
+        })
+          .then((response) => {
+            console.log(response);
+            if (response.ok) {
+              alert("Post deleted successfully");
+              // Redirect to the posts listing page
+              window.location.href = "/api/posts"; // Change to your correct URL
+            } else {
+              response.json().then((errorData) => {
+                alert(`Failed to delete post: ${errorData.error}`);
+              });
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            alert("An error occurred while deleting the post." + error);
+          });
+      }
+      function EditPost(postId) {
+        try {
+          var title = document.getElementById("title" + postId).value;
+          var author = document.getElementById("author" + postId).value;
+          var content = document.getElementById("content" + postId).value;
+          var imageInput = document.getElementById("image"); // Get the input element specific to the post
+          // Check if a new image has been selected
+          var image = imageInput.files.length > 0 ? imageInput.files[0] : null;
+        } catch (e) {
+          console.log(e);
+        }
 
-           // Send a POST request to the API to create the new department
-           fetch("/api/departments", {
-             method: "POST",
-             headers: {
-               "Content-Type": "application/json",
-             },
-             body: JSON.stringify(newDepartment),
-           })
-               .then(async (response) => {
-                 if (response.ok) {
-                   // Update the department table
-                   // ... (Code to update the department table)
-                   alert("Department created successfully");
-                   window.location.href = "/api/departments"; // Redirect to departments list
-               } else {
-                   const errorText = await response.text();
-                   alert(`Failed to add department: ${errorText}`);
-               }
-             })
-             .catch((error) => {
-               console.error("Error:", error);
-             });
-         }
+        var formData = new FormData();
+        formData.append("title", title);
+        formData.append("author", author);
+        formData.append("content", content);
+
+        // Only append the image if a new one has been selected
+        if (image) {
+          formData.append("image", image);
+        }
+
+        (async () => {
+          try {
+            const response = await fetch(`/api/posts/${postId}`, {
+              method: "PUT",
+              body: formData,
+            });
+
+            if (response.ok) {
+              alert("Post updated successfully");
+              window.location.href = "/api/posts"; // Reload the page to reflect changes
+            } else {
+              const errorData = await response.json();
+              alert(`Failed to update post: ${errorData.error}`);
+            }
+          } catch (error) {
+            console.error("Error:", error);
+            alert(
+              "An error occurred while updating the post: " + error.message
+            );
+          }
+        })();
+      }
+    </script>
+    <script>
+      function previewImage(event, postId) {
+        var reader = new FileReader();
+        reader.onload = function () {
+          var output = document.getElementById("imagePreview" + postId);
+          output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+      }
     </script>
     <!--end::OverlayScrollbars Configure-->
     <!--end::Script-->

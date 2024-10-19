@@ -80,6 +80,7 @@ app.use("/doctor", require("./routes/Frontend/Doctors"));
 //////ejs routes//////////////////////////////////////
 app.use("/api/doctors", require("./routes/Doctors"));
 app.use("/api/departments", require("./routes/Departments"));
+app.use("/api/posts", require("./routes/Post"));
 app.listen(5000, () => {
   console.log("Server is running on port 5000");
 });

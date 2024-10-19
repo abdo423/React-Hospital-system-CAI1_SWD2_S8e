@@ -43,7 +43,6 @@ router.get("/", async (req, res) => {
         console.error("Invalid token:", ex);
       }
     }
-    console.log("doctors", doctors);
 
     res.render("Doctors", { doctors: doctors, username: username });
   } catch (error) {
@@ -83,7 +82,6 @@ router.post("/", upload.single("doctorImage"), async (req, res) => {
     if (!req.file) {
       return res.status(400).send({ error: "Doctor image is required." });
     }
-    let doctorImagePath = "";
     const shortPath = `uploads/${req.file.filename}`;
 
     // Prepare the doctor object
