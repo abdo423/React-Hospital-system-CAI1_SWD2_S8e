@@ -1,0 +1,23 @@
+/* about-us section style */
+.aboutUsSection {
+    background-color: #f5f9ff;
+}
+
+.theContentOfSection .card {
+    margin: 0px 0px 100px 0px;
+}
+
+.card img {
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+}
+
+.card a {
+    color: black;
+}
+
+.card a:hover {
+    color: #3b5998;
+}
+/* end of about-us section style */
