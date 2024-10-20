@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const config = require("config");
 const auth = require("./middlewares/auth");
+const bannerRoutes = require("./routes/HomepageBanner");
 const cookieParser = require("cookie-parser");
 Joi.objectId = require("joi-objectid")(Joi);
 
@@ -27,7 +28,21 @@ mongoose
   })
   .catch(() => {
     console.log("Connection failed");
-  }); // Add your MongoDB connection string
+  }); 
+  
+  
+  mongoose
+  .connect(
+  "mongodb+srv://mennaabdelfatah4:EA2zaXrRkSGJ6rMT@image.0u9zy.mongodb.net/Banner?retryWrites=true&w=majority&appName=image"
+  )
+    .then(() => {
+      console.log("connecting to database");
+    })
+    .catch((err) => {
+      console.error("could not connect to database", err);
+    }); 
+  
+  // Add your MongoDB connection string
 //////////////////////////////////////////////////////////////////////
 // Serve AdminLTE files
 app.use(
@@ -77,10 +92,12 @@ app.use("/api/doctors/new", (req, res) => {
 app.use("/admin", require("./routes/Admin"));
 app.use("/departments", require("./routes/Frontend/Departments"));
 app.use("/doctor", require("./routes/Frontend/Doctors"));
+
 //////ejs routes//////////////////////////////////////
 app.use("/api/doctors", require("./routes/Doctors"));
 app.use("/api/departments", require("./routes/Departments"));
 app.use("/api/posts", require("./routes/Post"));
+app.use("/api/banners", bannerRoutes);
 app.listen(5000, () => {
   console.log("Server is running on port 5000");
 });
