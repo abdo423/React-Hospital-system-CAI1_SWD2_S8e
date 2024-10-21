@@ -76,7 +76,8 @@ app.use("/api/doctors/new", (req, res) => {
 ///////////////////////////Routes///////////////////////////
 app.use("/admin", require("./routes/Admin"));
 app.use("/departments", require("./routes/Frontend/Departments"));
-app.use("/doctor", require("./routes/Frontend/Doctors"));
+app.use("/doctors", require("./routes/Frontend/Doctors"));
+app.use("/posts", require("./routes/Frontend/Post"));
 //////ejs routes//////////////////////////////////////
 app.use("/api/doctors", require("./routes/Doctors"));
 app.use("/api/departments", require("./routes/Departments"));

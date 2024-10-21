@@ -1,6 +1,10 @@
 import React from 'react';
 import DepartmentsSection from '../Departments/DepartmentsSection/DepartmentsSection';
 import PagesHeroSection from '../../Shared/PagesHeroSection/PagesHeroSection';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchDepartments } from '../../../APIs/DepartmentsApi';
+
 const departmentsData = [
   { title: 'Plastic Surgery', imageUrl: '/images/01.png' },
   { title: 'Rhinology', imageUrl: '/images/01.png' },
@@ -14,16 +18,20 @@ const departmentsData = [
   { title: 'Eye Care', imageUrl: '/images/04.png' }
 ];
 
-const App = () => (
+const Departments = () => 
+{
+  const dispatch = useDispatch();
+  const departments = useSelector((state) => state.departmentsSlice.departments);
+  useEffect(() => {
+    dispatch(fetchDepartments());
+  }, [dispatch]);
+  return (
+    <>
+      <PagesHeroSection title="Department The Mutki" subTitle="Departments" />
+      <DepartmentsSection title="Best Our Departments Center" departments={departments} />
+    </>
+  );
+}
   
-  <>
-  <PagesHeroSection title="Department The Mutki" subTitle="Departments" />
-  <DepartmentsSection
-    title="Best Our Departments Center"
-    departments={departmentsData}
-  />
-  </>
-  
-);
 
-export default App;
+export default Departments;

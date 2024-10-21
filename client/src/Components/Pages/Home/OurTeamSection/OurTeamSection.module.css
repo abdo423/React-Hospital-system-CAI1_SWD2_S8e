@@ -26,3 +26,8 @@
     border-bottom: 10px solid white;
    
   }
+  .doctorImage {
+    width: 100%; /* Responsive width */
+    height: 300px; /* Fixed height */
+    object-fit: cover; /* Ensures the image covers the area without stretching */
+  }

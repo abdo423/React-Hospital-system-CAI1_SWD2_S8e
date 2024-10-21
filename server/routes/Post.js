@@ -6,24 +6,25 @@ const upload = require("../middlewares/imageUploader");
 const jwt = require("jsonwebtoken");
 const config = require("config");
 const { BlogPost, blogPostValidator } = require("../models/Post");
-const { TopologyDescription } = require("mongodb");
 const auth = require("../middlewares/auth");
 
 router.get("/", async (req, res) => {
-  const posts = await BlogPost.find().sort("date");
-  // Handle token logic here
-  const token = req.cookies["x-auth-token"]; // Get the token from cookies
-  let username = "Guest"; // Default value if no token is found
-
-  if (token) {
-    try {
-      const decoded = jwt.verify(token, config.get("jwtPrivateKey"));
-      username = decoded.username; // Get the username from the JWT
-    } catch (ex) {
-      console.error("Invalid token:", ex);
-    }
-  }
   try {
+    const posts = await BlogPost.find().sort("date");
+
+    // Handle token logic here
+    const token = req.cookies["x-auth-token"]; // Get the token from cookies
+    let username = "Guest"; // Default value if no token is found
+
+    if (token) {
+      try {
+        const decoded = jwt.verify(token, config.get("jwtPrivateKey"));
+        username = decoded.username; // Get the username from the JWT
+      } catch (ex) {
+        console.error("Invalid token:", ex);
+      }
+    }
+
     res.render("Posts.ejs", { posts: posts, username: username });
   } catch (error) {
     console.error("Error fetching posts:", error);
@@ -34,19 +35,24 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/:id", async (req, res) => {
-  const post = await BlogPost.findById(req.params.id);
   try {
+    const post = await BlogPost.findById(req.params.id);
+    if (!post) {
+      return res.status(404).render("Post.ejs", { error: "Post not found." });
+    }
     res.render("Post.ejs", { post: post });
   } catch (error) {
-    console.error("Error fetching posts:", error);
+    console.error("Error fetching post:", error);
     res.status(500).render("Post.ejs", {
-      error: "An error occurred while retrieving posts.",
+      error: "An error occurred while retrieving the post.",
     });
   }
 });
 
 router.post("/", upload.single("image"), async (req, res) => {
   try {
+  
+
     // Validate post input
     const { error } = blogPostValidator(req.body);
     if (error) {
@@ -54,22 +60,13 @@ router.post("/", upload.single("image"), async (req, res) => {
       return res.status(400).render("Posts.ejs", { errors: errorMessages });
     }
 
-    // Check if the image already exists
+    // Check if the image is provided
     if (!req.file) {
-      return res.status(400).send({ error: "Post image is required." });
+      console.log("No file uploaded. Request:", req);
+      return res.status(400).send({ error: "Post image is required. No file was received by the server." });
     }
 
-    const shortPath = `uploads/${req.file.filename}`;
-
-    // Create a new post
-    const post = new BlogPost({
-      title: req.body.title,
-      author: req.body.author,
-      content: req.body.content,
-      image: shortPath,
-    });
-
-    await post.save();
+    // ... rest of the code
   } catch (error) {
     console.error("Error creating post:", error);
     res.status(500).render("Posts.ejs", {
@@ -89,40 +86,37 @@ router.put("/:id", upload.single("image"), async (req, res) => {
     }
 
     // Find the post to update
-    let post = await BlogPost.findById(req.params.id);
+    const post = await BlogPost.findById(req.params.id);
     if (!post) {
       return res.status(404).send({ error: "Post not found" });
     }
-    let imagePath = post.image;
+
+    let imagePath = post.image; // Keep the old image path unless updated
     if (req.file) {
-    const shortPath = `uploads/${req.file.filename}`;
-    imagePath = shortPath;
+      const shortPath = `uploads/${req.file.filename}`;
+      imagePath = shortPath;
+
+      // Delete the old image (if there was one)
+      await fs.unlink(path.join(__dirname, "../", post.image)).catch(console.error);
     }
+
     const updatedPost = {
       title: req.body.title,
       author: req.body.author,
       content: req.body.content,
       image: imagePath,
     };
+
     const updatedBlog = await BlogPost.findByIdAndUpdate(
       req.params.id,
       updatedPost,
       { new: true }
     );
 
-    // Handle Image Updates
-
-    // Delete the old image (if there was one)
-    if (req.file && post.image) {
-        await fs.unlink(post.image).catch(console.error);
-      }
-
-    res.status(200).send(updatedBlog);
+    res.status(200).send(updatedBlog); // Respond with the updated blog post
   } catch (error) {
     console.error("Error updating post:", error);
-    res
-      .status(500)
-      .send({ error: "An error occurred while updating the post." });
+    res.status(500).send({ error: "An error occurred while updating the post." });
   }
 });
 
@@ -132,13 +126,11 @@ router.delete("/:id", async (req, res) => {
     if (!post) {
       return res.status(404).send({ error: "Post not found" });
     }
-    await fs.unlink(path.join(__dirname, "../", post.image));
+    await fs.unlink(path.join(__dirname, "../", post.image)); // Delete the image file
     res.send(post);
   } catch (error) {
     console.error("Error deleting post:", error);
-    res
-      .status(500)
-      .send({ error: "An error occurred while deleting the post." });
+    res.status(500).send({ error: "An error occurred while deleting the post." });
   }
 });
 

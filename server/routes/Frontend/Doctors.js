@@ -17,6 +17,15 @@ router.get("/", async (req, res) => {
     res.status(500).send({ error: "An error occurred while retrieving doctors." });
   }
 });
+// GET 4 random doctors
+router.get("/random", async (req, res) => {
+  try {
+    const randomDoctors = await Doctor.aggregate([{ $sample: { size: 4 } }]);
+    res.send(randomDoctors);
+  } catch (error) {
+    res.status(500).send({ error: "An error occurred while retrieving random doctors." });
+  }
+});
 
 // GET doctor by ID
 router.get("/:id", async (req, res) => {
@@ -56,8 +65,7 @@ router.post("/", upload.single("doctorImage"), async (req, res) => {
     if (!req.file) {
       return res.status(400).send({ error: "Doctor image is required." });
     }
-    let doctorImagePath = "";
-    doctorImagePath = `uploads/${req.file.filename}`;
+    let doctorImagePath = `uploads/${req.file.filename}`;
      
     // Prepare the doctor object
     const doctor = new Doctor({

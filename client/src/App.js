@@ -1,3 +1,4 @@
+import React from "react";
 
 import "./App.css";
 import Header from "./Components/Shared/Header/Header";
@@ -13,7 +14,7 @@ function App() {
     <>
       <Header />
       <Outlet />
-      {isHomeRoute ? <FooterHome /> : <Footer/>}
+      {isHomeRoute ? <FooterHome /> : <Footer />}
     </>
   );
 }

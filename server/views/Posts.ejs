@@ -641,9 +641,14 @@
                       id="image"
                       name="image"
                       accept="image/*"
+                      required
                     />
                   </div>
-                  <button onclick="AddBlogPost()" class="btn btn-primary">
+                  <button
+                    type="button"
+                    onclick="AddBlogPost()"
+                    class="btn btn-primary"
+                  >
                     Add Post
                   </button>
                 </form>
@@ -719,23 +724,27 @@
         });
       });
       function AddBlogPost() {
-        var title = document.getElementById("title").value;
-        var author = document.getElementById("author").value;
-        var content = document.getElementById("content").value;
-        var image = document.getElementById("image").files[0];
-        var formData = new FormData();
-        formData.append("title", title);
-        formData.append("author", author);
-        formData.append("content", content);
-        formData.append("image", image);
+        const form = document.getElementById("AddPostForm");
+        const imageInput = document.getElementById("image");
+        const image = imageInput.files.length > 0 ? imageInput.files[0] : null;
+
+        // Check if an image file has been selected
+        if (!image) {
+          alert("Please select an image file to upload.");
+          return;
+        }
+
+        var formData = new FormData(form);
+
         fetch("/api/posts", {
+          // Assuming this is your backend API endpoint
           method: "POST",
           body: formData,
         })
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
-            if (data.status == "success") {
+            if (data.status === "success") {
               alert("Post added successfully");
               window.location.reload();
             } else {
@@ -744,11 +753,10 @@
           })
           .catch((error) => {
             console.error("Error:", error);
-            alert(
-              "An error occurred while updating the post: " + error.message
-            );
+            alert("An error occurred while adding the post: " + error.message);
           });
       }
+
       function deleteBlogPost(postId) {
         console.log(postId);
 

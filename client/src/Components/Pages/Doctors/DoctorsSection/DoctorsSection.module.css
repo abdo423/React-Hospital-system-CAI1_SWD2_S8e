@@ -35,6 +35,13 @@ margin-bottom: 10px
 }
 /* end our doctors */
 
+/* DoctorsSection.module.css */
+
+.doctorImage {
+  width: 100%; /* Make the image responsive */
+  height: 300px; /* Set a fixed height */
+  object-fit: cover; /* Ensure the image covers the space without stretching */
+}
 
 
 

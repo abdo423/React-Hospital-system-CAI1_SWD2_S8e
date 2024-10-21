@@ -1,6 +1,6 @@
 
 import styles from './HeroSection.module.css';
-
+import React from 'react';
 const HeroSection = () => {
     return (
         <section  className={styles.hero}>

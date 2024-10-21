@@ -34,6 +34,10 @@
       .btn-primary:hover {
         background-color: #0056b3;
       }
+      .img-preview {
+        max-height: 200px;
+        margin-top: 15px;
+      }
     </style>
   </head>
   <body>
@@ -43,7 +47,7 @@
           <h3>Edit Department</h3>
         </div>
         <div class="card-body">
-          <form id="editDepartment">
+          <form id="editDepartmentForm" enctype="multipart/form-data">
             <div class="form-group">
               <label for="departmentName">Department Name</label>
               <input
@@ -55,50 +59,75 @@
                 required
               />
             </div>
-            <button type="submit" class="btn btn-primary btn-block">
+            <div class="form-group">
+              <label for="departmentImage">Department Image</label>
+              <input
+                type="file"
+                class="form-control"
+                id="departmentImage"
+                name="departmentImage"
+                accept="image/*"
+                onchange="previewImage(event)"
+              />
+              <img
+                id="imagePreview"
+                src="/<%= department.departmentImage %>"
+                alt="<%= department.name %>"
+                class="img-fluid img-preview"
+              />
+            </div>
+            <button
+              type="button"
+              onclick="editDepartment()"
+              class="btn btn-primary btn-block"
+            >
               Save Changes
             </button>
           </form>
         </div>
       </div>
     </div>
+
+    <script>
+      function previewImage(event) {
+        const imagePreview = document.getElementById("imagePreview");
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            imagePreview.src = e.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      }
+
+      function editDepartment() {
+        const form = document.getElementById("editDepartmentForm");
+        const formData = new FormData(form);
+
+        if (confirm("Are you sure you want to save changes?")) {
+          fetch(`/api/departments/<%= department._id %>`, {
+            method: "PUT",
+            body: formData,
+          })
+            .then(async (response) => {
+              if (response.ok) {
+                alert("Department Updated successfully");
+                window.location.href = "/api/departments"; // Redirect to departments list
+              } else {
+                const errorText = await response.text();
+                alert(`Failed to add department: ${errorText}`);
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        }
+      }
+    </script>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-      document
-        .getElementById("editDepartment")
-        .addEventListener("submit", async function (e) {
-          e.preventDefault();
-
-          const departmentName = document.getElementById("departmentName").value;
-          const departmentId = "<%= department._id %>"; // Pass the department ID from backend
-         
-          try {
-            if (!confirm("Are you sure you want to update the department?")) {
-              return;
-            }
-           
-            // Make the PUT request with FormData
-            const response = await fetch(`/api/departments/${departmentId}`, {
-              method: "PUT",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ name: departmentName }), // Pass FormData directly
-            });
-
-            if (response.ok) {
-              alert("Department updated successfully");
-              window.location.href = "/api/departments"; // Redirect after success
-            } else {
-              const errorText = await response.text();
-              alert(`Failed to update department: ${errorText}`);
-            }
-          } catch (error) {
-            console.error("Failed to update the department", error);
-          }
-        });
-    </script>
   </body>
 </html>
