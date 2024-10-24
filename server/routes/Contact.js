@@ -26,10 +26,11 @@ const contactSchema = Joi.object({
 // GET: صفحة Contact Us
 router.get('/', async (req, res) => {
     try {
-        res.render('contact'); 
-    } catch (error) {
-        console.error(error);
-        res.status(500).render('contact', { message: 'Internal server error.' });
+        const messages = await Contact.find().sort({ createdAt: -1 });
+        res.render('contact', { messages });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Server Error');
     }
 });
 
@@ -51,17 +52,6 @@ router.post('/', async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).render('contact', { message: 'Internal server error.' });
-    }
-});
-
-// GET: جلب كل الرسائل (Dashboard)
-router.get('/all', async (req, res) => {
-    try {
-        const contacts = await Contact.find().exec();
-        res.status(200).json(contacts);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Internal server error.' });
     }
 });
 
