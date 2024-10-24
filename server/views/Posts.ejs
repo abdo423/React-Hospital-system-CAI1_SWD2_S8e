@@ -723,38 +723,50 @@
           }
         });
       });
-      function AddBlogPost() {
-        const form = document.getElementById("AddPostForm");
-        const imageInput = document.getElementById("image");
-        const image = imageInput.files.length > 0 ? imageInput.files[0] : null;
 
-        // Check if an image file has been selected
-        if (!image) {
-          alert("Please select an image file to upload.");
-          return;
+      function AddBlogPost() {
+        try {
+          var title = document.getElementById("title").value;
+          var author = document.getElementById("author").value;
+          var content = document.getElementById("content").value;
+          var imageInput = document.getElementById("Image"); // Get the input element specific to the post
+          // Check if a new image has been selected
+          var image = imageInput.files.length > 0 ? imageInput.files[0] : null;
+        } catch (e) {
+          console.log(e);
         }
 
-        var formData = new FormData(form);
+        var formData = new FormData();
+        formData.append("title", title);
+        formData.append("author", author);
+        formData.append("content", content);
 
-        fetch("/api/posts", {
-          // Assuming this is your backend API endpoint
-          method: "POST",
-          body: formData,
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            console.log(data);
-            if (data.status === "success") {
+        // Only append the image if a new one has been selected
+        if (image) {
+          formData.append("image", image);
+        } else {
+          return alert(`you should enter image`);
+        }
+
+        (async () => {
+          try {
+            const response = await fetch(`/api/posts`, {
+              method: "POST",
+              body: formData,
+            });
+
+            if (response.ok) {
               alert("Post added successfully");
-              window.location.reload();
+              window.location.href = "/api/posts"; // Reload the page to reflect changes
             } else {
-              alert("Failed to add post");
+              const errorData = await response.json();
+              alert(`Failed to add post: ${errorData.error}`);
             }
-          })
-          .catch((error) => {
+          } catch (error) {
             console.error("Error:", error);
             alert("An error occurred while adding the post: " + error.message);
-          });
+          }
+        })();
       }
 
       function deleteBlogPost(postId) {

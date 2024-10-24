@@ -49,29 +49,33 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+
 router.post("/", upload.single("image"), async (req, res) => {
   try {
-  
+      const { error } = blogPostValidator(req.body);
+      if (error) {
+          const errorMessages = error.details.map((detail) => detail.message);
+          return res.status(400).send({ errors: errorMessages });
+      }
 
-    // Validate post input
-    const { error } = blogPostValidator(req.body);
-    if (error) {
-      const errorMessages = error.details.map((detail) => detail.message);
-      return res.status(400).render("Posts.ejs", { errors: errorMessages });
-    }
+      if (!req.file) {
+          return res.status(400).send({ error: "Post image is required." });
+      }
 
-    // Check if the image is provided
-    if (!req.file) {
-      console.log("No file uploaded. Request:", req);
-      return res.status(400).send({ error: "Post image is required. No file was received by the server." });
-    }
+      const shortPath = `uploads/${req.file.filename}`;
 
-    // ... rest of the code
+      const post = new BlogPost({
+          title: req.body.title,
+          author: req.body.author,
+          content: req.body.content,
+          image: shortPath,
+      });
+
+      await post.save();
+      res.status(201).send(post);
   } catch (error) {
-    console.error("Error creating post:", error);
-    res.status(500).render("Posts.ejs", {
-      error: "An error occurred while creating the post.",
-    });
+      console.error("Error creating post:", error);
+      res.status(500).send({ error: "An error occurred while creating the post." });
   }
 });
 
