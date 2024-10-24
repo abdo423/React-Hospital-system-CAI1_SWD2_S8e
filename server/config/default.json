@@ -1,0 +1,4 @@
+{
+    "DB_CONNECTION":"mongodb+srv://megahed:Lat9x6mKZ66e-6d@cluster0.2p0tw.mongodb.net/Cluster0?retryWrites=true&w=majority&appName=Cluster0",
+    "jwtPrivateKey":"Badfdwerfsdgfgdfg12434st5##%$@^&^@#"
+}

@@ -1,0 +1,40 @@
+:root {
+  --color-primary: #0071ef;
+}
+
+/* departments section style */
+.theContentOfSection .departmentsPhotos .photo {
+  background-color: #f5f9ff;
+}
+
+.theContentOfSection .departmentSummry .summry {
+  background-color: white;
+}
+
+/* DepartmentsSection.module.css */
+.primaryButton {
+  background-color: #0071e1;
+  color: white;
+}
+
+.primaryButton:hover {
+  background-color: white;
+  color: var(--color-primary);
+}
+
+.theContentOfSection {
+  z-index: 9999;
+  position: relative; /* Make this container the reference point */
+}
+
+.DepartmentsFooter {
+  background-color: var(--color-primary);
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  bottom: -50%;
+
+  @media (max-width: 768px) {
+    bottom: auto;
+  }
+}

@@ -1,0 +1,24 @@
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+</head>
+<body>
+    <h1>Messages</h1>
+    <ul>
+        {% for message in messages %}
+            <li>
+                <strong>Name:</strong> {{ message.name }}<br>
+                <strong>Email:</strong> {{ message.email }}<br>
+                <strong>Message:</strong> {{ message.message }}<br>
+                <strong>Date:</strong> {{ message.created_at }}<br>
+            </li>
+        {% empty %}
+            <li>No messages yet.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

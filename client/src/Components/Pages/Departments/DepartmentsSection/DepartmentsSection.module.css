@@ -1,0 +1,13 @@
+.DepartmentsSection {
+    background-color: #f5f9ff;
+}
+
+.DepartmentCard {
+    height: 200px;
+    background-color: white;
+    /* Add other styling rules */
+}
+
+.icon_holder img {
+    max-width: 100%;
+}
