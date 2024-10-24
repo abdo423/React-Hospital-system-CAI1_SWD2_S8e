@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin courses</title>
+    <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/adminlte/dist/css/adminlte.min.css">
+</head>
+
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <!--begin::App Wrapper-->
+    <div class="app-wrapper">
+        <!--begin::Header-->
+        <nav class="app-header navbar navbar-expand bg-body"  style="min-height: 50px;">
+            <!--begin::Container-->
+            <div class="container-fluid">
+            </div>
+            <!--end::Container-->
+        </nav>
+
+
+        <!--end::Header--> <!--begin::Sidebar-->
+        <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+            <!--begin::Sidebar Brand-->
+            <div class="sidebar-brand">
+                <!--begin::Brand Link-->
+                <a href="/banners" class="brand-link">
+                    <span class="brand-text fw-light">AdminLTE 4</span> <!--end::Brand Text-->
+                </a>
+                <!--end::Brand Link-->
+            </div>
+            <!--end::Sidebar Brand--> <!--begin::Sidebar Wrapper-->
+            <div class="sidebar-wrapper">
+                <nav class="mt-2">
+                    <!--begin::Sidebar Menu-->
+                    <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu"
+                        data-accordion="false">
+                        <li class="nav-item">
+                            <a href="/banners" class="nav-link">
+                                <i class="nav-icon bi bi-speedometer"></i>
+                                <p>
+                                    Banners
+                                    <i class="nav-arrow bi bi-chevron-right"></i>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/banners/new" class="nav-link">
+                                <i class="nav-icon bi bi-palette"></i>
+                                <p>add Banner</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <!--end::Sidebar Menu-->
+                </nav>
+            </div>
+            <!--end::Sidebar Wrapper-->
+        </aside>
+
+
+        <!--end::Sidebar--> <!--begin::App Main-->
+        <main class="app-main">
+            <!--begin::App Content Header-->
+            <div class="app-content-header">
+                <!--begin::Container-->
+                <div class="container-fluid">
+                    <!--begin::Row-->
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h3 class="mb-0">Adding Course</h3>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-end">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Adding Course
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="app-content">
+                <!--begin::Container-->
+                <div class="container-fluid">
+                    <!--begin::Row-->
+                    <div class="row g-4">
+                        <!--begin::Col-->
+                        <div class="col-md-6">
+                            <!--begin::Quick Example-->
+                            <div class="card card-primary card-outline mb-4">
+                                <div class="card-header">
+                                    <div class="card-title">Adding Banner</div>
+                                </div>
+                                <!--end::Header--> <!--begin::Form-->
+                                <form action="/banners" method="POST" enctype="multipart/form-data">
+                                    <div class="card-body">
+
+                                        <!-- Display Error Messages -->
+                                        <% if (errors.length> 0) { %>
+                                            <div class="alert alert-danger">
+                                                <ul>
+                                                    <% errors.forEach(function(error) { %>
+                                                        <li>
+                                                            <%= error %>
+                                                        </li>
+                                                        <% }) %>
+                                                </ul>
+                                            </div>
+                                            <% } %>
+                                                <div class="mb-3">
+                                                    <div class="form-group">
+                                                        <label for="title">Banner Name</label>
+                                                        <input type="text" class="form-control" id="title" name="title"
+                                                            required value="<%= banner.title || '' %>">
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <div class="form-group">
+                                                        <label for="subTitle">Sub title</label>
+                                                        <textarea class="form-control" id="subTitle" name="subTitle"  cols="4" rows="6" required><%= banner.subTitle || '' %></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <div class="form-group">
+                                                        <label for="bannerCover">Banner Cover</label>
+                                                        <input type="file" class="form-control-file" id="bannerCover" name="bannerCover" required>
+                                    
+                                                           
+                                                    </div>
+                                                </div>
+                                               
+                                                
+                                             
+                                                <div class="mb-3">
+                                                    <div class="form-group">
+                                                        <label for="isPublished">Published</label>
+                                                        <select class="form-control" id="isPublished" name="isPublished"
+                                                            required>
+                                                            <option value="true" <%=banner.isPublished==='true'
+                                                                ? "selected" : "" %>>Yes</option>
+                                                            <option value="false" <%=banner.isPublished==='false'
+                                                                ? "selected" : "" %>>No</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <button type="submit" class="btn btn-primary">Add Banner</button>
+                                                </div>
+                                    </div>
+                                </form>
+                                <!--end::Form-->
+                            </div>
+                        </div>
+                        <!--end::Col--> <!--begin::Col-->
+                    </div>
+                    <!--end::Row-->
+                </div>
+                <!--end::Container-->
+            </div>
+            <!--end::App Content-->
+        </main>
+
+
+        <!--end::App Main--> <!--begin::Footer-->
+        <footer class="app-footer">
+            <div class="float-end d-none d-sm-inline">Anything you want</div>
+            <strong>
+                Copyright &copy; 2014-2024&nbsp;
+                <a href="https://adminlte.io" class="text-decoration-none">AdminLTE.io</a>.
+            </strong>
+            All rights reserved.
+        </footer>
+    </div>
+    <script src="/adminlte/dist/js/adminlte.min.js"></script>
+</body>
+
+</html>

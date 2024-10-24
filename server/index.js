@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const config = require("config");
 const auth = require("./middlewares/auth");
-const bannerRoutes = require("./routes/HomepageBanner");
+const bannerRoutes = require("./routes/Banner");
 const cookieParser = require("cookie-parser");
 Joi.objectId = require("joi-objectid")(Joi);
 

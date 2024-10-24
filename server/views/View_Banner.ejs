@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Admin banners</title>
+   <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+   <link rel="stylesheet" href="/adminlte/dist/css/adminlte.min.css">
+</head>
+
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+   <!--begin::App Wrapper-->
+   <div class="app-wrapper">
+      <!--begin::Header-->
+      <nav class="app-header navbar navbar-expand bg-body" style="min-height: 50px;">
+         <!--begin::Container-->
+         <div class="container-fluid">
+            <!--begin::Start Navbar Links-->
+ 
+            <!--end::End Navbar Links-->
+         </div>
+         <!--end::Container-->
+      </nav>
+
+
+      <!--end::Header--> <!--begin::Sidebar-->
+      <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+         <!--begin::Sidebar Brand-->
+         <div class="sidebar-brand">
+            <!--begin::Brand Link-->
+            <a href="/banners" class="brand-link">
+               <span class="brand-text fw-light">AdminLTE 4</span> <!--end::Brand Text-->
+            </a>
+            <!--end::Brand Link-->
+         </div>
+         <!--end::Sidebar Brand--> <!--begin::Sidebar Wrapper-->
+         <div class="sidebar-wrapper">
+            <nav class="mt-2">
+               <!--begin::Sidebar Menu-->
+               <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
+                  <li class="nav-item">
+                     <a href="/banners" class="nav-link">
+                        <i class="nav-icon bi bi-speedometer"></i>
+                        <p>
+                           courses
+                           <i class="nav-arrow bi bi-chevron-right"></i>
+                        </p>
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a href="/banners/new" class="nav-link">
+                        <i class="nav-icon bi bi-palette"></i>
+                        <p>add course</p>
+                     </a>
+                  </li>
+               </ul>
+               <!--end::Sidebar Menu-->
+            </nav>
+         </div>
+         <!--end::Sidebar Wrapper-->
+      </aside>
+
+
+      <!--end::Sidebar--> <!--begin::App Main-->
+      <main class="app-main">
+         <!--begin::App Content Header-->
+         <div class="app-content-header">
+            <!--begin::Container-->
+            <div class="container-fluid">
+               <!--begin::Row-->
+               <div class="row">
+                  <div class="col-sm-6">
+                     <h3 class="mb-0">Banner Details</h3>
+                  </div>
+                  <div class="col-sm-6">
+                     <ol class="breadcrumb float-sm-end">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                           Banner Details
+                        </li>
+                     </ol>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="app-content">
+            <!--begin::Container-->
+            <div class="container-fluid">
+               <!--begin::Row-->
+               <div class="row g-4">
+                  <!--begin::Col-->
+                  <div class="col-md-6">
+                     <!--begin::Quick Example-->
+                     <div class="card card-primary card-outline mb-4">
+                        <div class="card-header">
+                           <div class="card-title"><%= banner.title %></div>
+                        </div>
+                        <!--end::Header--> <!--begin::Form-->
+                        <div class="card-body">
+                           <div class="mb-3">
+                              <p><strong>Title:</strong>
+                                 <%= banner.name %>
+                              </p>
+                              <p><strong>Sub Title:</strong>
+                                 <%= banner.subTitle %>
+                              </p>
+<p><strong>Banner Cover:</strong>
+                                 <%= banner.bannerCover %>
+                              </p>
+                              <a href="/banners" class="btn btn-primary">Back to Banners</a>
+                              </div>
+                           </div>
+                          
+                           <!--end::Form-->
+                        </div>
+                     </div>
+                     <!--end::Col--> <!--begin::Col-->
+                  </div>
+                  <!--end::Row-->
+               </div>
+               <!--end::Container-->
+            </div>
+            <!--end::App Content-->
+         </main>
+
+
+         <!--end::App Main--> <!--begin::Footer-->
+         <footer class="app-footer">
+            <div class="float-end d-none d-sm-inline">Anything you want</div>
+            <strong>
+            Copyright &copy; 2014-2024&nbsp;
+            <a href="https://adminlte.io" class="text-decoration-none">AdminLTE.io</a>.
+            </strong>
+            All rights reserved.
+         </footer>
+      </div>
+      <script src="/adminlte/dist/js/adminlte.min.js"></script>
+   </body>
+</html>

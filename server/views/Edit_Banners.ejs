@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Banner</title>
+    <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/adminlte/dist/css/adminlte.min.css">
+</head>
+
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <!--begin::App Wrapper-->
+    <div class="app-wrapper">
+        <!--begin::Header-->
+        <nav class="app-header navbar navbar-expand bg-body" style="min-height: 50px;">
+            <!--begin::Container-->
+            <div class="container-fluid">
+            </div>
+            <!--end::Container-->
+        </nav>
+        <!--end::Header-->
+
+        <!--begin::Sidebar-->
+        <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+            <!--begin::Sidebar Brand-->
+            <div class="sidebar-brand">
+                <a href="/banners" class="brand-link">
+                    <span class="brand-text fw-light">AdminLTE 4</span>
+                </a>
+            </div>
+            <!--end::Sidebar Brand-->
+
+            <div class="sidebar-wrapper">
+                <nav class="mt-2">
+                    <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu"
+                        data-accordion="false">
+                        <li class="nav-item">
+                            <a href="/banners" class="nav-link">
+                                <i class="nav-icon bi bi-speedometer"></i>
+                                <p>
+                                    Banners
+                                    <i class="nav-arrow bi bi-chevron-right"></i>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/banners/new" class="nav-link">
+                                <i class="nav-icon bi bi-palette"></i>
+                                <p>Add Banner</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <!--end::Sidebar Wrapper-->
+        </aside>
+
+        <!--begin::App Main-->
+        <main class="app-main">
+            <!--begin::App Content Header-->
+            <div class="app-content-header">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h3 class="mb-0">Edit Banner</h3>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-end">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Edit Banner
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-content">
+                <div class="container-fluid">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="card card-primary card-outline mb-4">
+                                <div class="card-header">
+                                    <div class="card-title">Quick Example</div>
+                                </div>
+                                
+                                <!--begin::Form-->
+                                <form id="editBannerForm" enctype="multipart/form-data">
+                                    <div class="card-body">
+                                        <% if (errors.length > 0) { %>
+                                            <div class="alert alert-danger">
+                                                <ul>
+                                                    <% errors.forEach(function(error) { %>
+                                                        <li><%= error %></li>
+                                                    <% }) %>
+                                                </ul>
+                                            </div>
+                                        <% } %>
+
+                                        <div class="mb-3">
+                                            <div class="form-group">
+                                                <label for="title">Banner Name</label>
+                                                <input type="text" class="form-control" id="title" name="title"
+                                                    value="<%= banner.title %>">
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <div class="form-group">
+                                                <label for="subTitle">Sub Title</label>
+                                                <textarea class="form-control" id="subTitle" name="subTitle" cols="4" rows="6"><%= banner.subTitle %></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <div class="form-group">
+                                                <label for="bannerCover">Banner Cover</label>
+                                                <input type="file" class="form-control-file" id="bannerCover" name="bannerCover">
+                                                <img src="/<%= banner.bannerCover %>" alt="Banner Cover" width="100">
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <div class="form-group">
+                                                <label for="isPublished">Published</label>
+                                                <select class="form-control" id="isPublished" name="isPublished" required>
+                                                    <option value="true" <%= banner.isPublished ? "selected" : "" %>>Yes</option>
+                                                    <option value="false" <%= !banner.isPublished ? "selected" : "" %>>No</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <button type="submit" class="btn btn-primary">Update Banner</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <!--end::Form-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!--end::App Main-->
+
+        <!--begin::Footer-->
+        <footer class="app-footer">
+            <div class="float-end d-none d-sm-inline">Anything you want</div>
+            <strong>
+                Copyright &copy; 2014-2024&nbsp;
+                <a href="https://adminlte.io" class="text-decoration-none">AdminLTE.io</a>.
+            </strong>
+            All rights reserved.
+        </footer>
+    </div>
+
+    <script src="/adminlte/dist/js/adminlte.min.js"></script>
+
+    <script>
+        document.getElementById("editBannerForm").addEventListener("submit", async function (event) {
+            event.preventDefault();  // Prevent the default form submission
+
+            const form = document.getElementById("editBannerForm");
+            const formData = new FormData(form);
+            const bannerId = "<%= banner._id %>";
+
+            try {
+                const response = await fetch(`/banners/${bannerId}`, {
+                    method: 'PUT',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    alert("Banner updated successfully");
+                    window.location.href = "/banners";  // Redirect to banners list
+                } else {
+                    const errorData = await response.json();
+                    alert("Failed to update banner: " + errorData.join(", "));
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("An error occurred while updating the banner");
+            }
+        });
+    </script>
+</body>
+
+</html>

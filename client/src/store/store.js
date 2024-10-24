@@ -7,3 +7,11 @@ export const store = configureStore({
 
   },
 })
+
+
+import bannerSlice from "../reducers/bannerSlice";
+export default configureStore({
+  reducer: {
+    banners: bannerSlice,
+  },
+});
