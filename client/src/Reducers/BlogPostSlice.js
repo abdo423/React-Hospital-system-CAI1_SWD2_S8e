@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
 import { fetchPosts, fetchPostById } from '../APIs/BlogPostApi';
+
 const blogPostSlice = createSlice({
-    name: 'posts',
+    name: 'blogsSlice',
     initialState: {
         posts: [],
         post: null,
@@ -25,6 +25,7 @@ const blogPostSlice = createSlice({
             })
             .addCase(fetchPostById.pending, (state) => {
                 state.status = 'loading';
+                state.post = null; // Reset post when starting new fetch
             })
             .addCase(fetchPostById.fulfilled, (state, action) => {
                 state.status = 'succeeded';
@@ -33,6 +34,7 @@ const blogPostSlice = createSlice({
             .addCase(fetchPostById.rejected, (state, action) => {
                 state.status = 'failed';
                 state.error = action.error.message;
+                state.post = null;
             });
     }
 });

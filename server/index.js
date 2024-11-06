@@ -78,10 +78,12 @@ app.use("/admin", require("./routes/Admin"));
 app.use("/departments", require("./routes/Frontend/Departments"));
 app.use("/doctors", require("./routes/Frontend/Doctors"));
 app.use("/posts", require("./routes/Frontend/Post"));
+app.use("/Banner", require("./routes/Frontend/Banner"));
 //////ejs routes//////////////////////////////////////
 app.use("/api/doctors", require("./routes/Doctors"));
 app.use("/api/departments", require("./routes/Departments"));
 app.use("/api/posts", require("./routes/Post"));
+app.use("/api/banner", require("./routes/Banner"));
 app.listen(5000, () => {
   console.log("Server is running on port 5000");
 });

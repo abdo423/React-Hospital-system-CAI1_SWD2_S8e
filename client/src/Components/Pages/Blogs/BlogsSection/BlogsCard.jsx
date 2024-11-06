@@ -11,9 +11,9 @@ const BlogsCard = ({ blog }) => {
     month: "long",
     day: "numeric",
   });
-
+  console.log(blog);
   return (
-    <div key={blog.id} className="col-lg-7 col-md-10 mb-4">
+    <div key={blog._id} className="col-lg-7 col-md-10 mb-4">
       <div className="card">
         <img
           src={process.env.REACT_APP_API_BASE_URL + "/" + blog.image} // Use the encoded URL
@@ -27,7 +27,7 @@ const BlogsCard = ({ blog }) => {
           <h4 className="card-title">{blog.title}</h4>
           <p className="card-text">{blog.content}</p>
           <hr />
-          <Link to={`/blog/${blog.id}`} className="btn btn-primary">
+          <Link to={`/blog/${blog._id}`} className="btn btn-primary">
             Read More &gt;&gt;
           </Link>
         </div>
