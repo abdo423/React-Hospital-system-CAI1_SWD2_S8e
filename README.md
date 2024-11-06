@@ -39,12 +39,7 @@ Hospital-Management-System/
 
 ## Features & Functionality
 
-1. **User Roles**:
-   - **Patients**: Register, log in, view profiles, and schedule appointments
-   - **Doctors**: Manage availability and access patient appointments
-   - **Admin**: Complete access to manage system data
-
-2. **Security**:
+1. **Security**:
    - **JWT Authentication**: Secure user sessions
    - **Data Validation**: Using Joi for input validation
    - **Error Handling**: Centralized error responses
@@ -72,15 +67,6 @@ Hospital-Management-System/
 
 4. Access the app at `http://localhost:3000`.
 
-## Routes Overview
-
-| Method | Endpoint                   | Description                            |
-|--------|-----------------------------|----------------------------------------|
-| POST   | `/api/register`             | Register a new patient or doctor       |
-| POST   | `/api/login`                | Login for all roles                    |
-| GET    | `/api/doctors`              | Retrieve a list of all doctors         |
-| POST   | `/api/appointments`         | Schedule an appointment                |
-| PATCH  | `/api/appointments/:id`     | Update appointment status              |
 
 ## Database Schema (MongoDB)
 
