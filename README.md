@@ -62,7 +62,11 @@ Hospital-Management-System/
 
 3. Start the development servers:
    ```bash
-   npm start  # Start server
+   cd client
+   npm start  # Start React App
+   cd ../server 
+   npm run start #Start Node server
+   
    ```
 
 4. Access the app at `http://localhost:3000`.
